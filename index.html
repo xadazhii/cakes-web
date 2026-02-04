@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cakes by Lina | Солодка Досконалість</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+    <header class="site-header">
+      <nav>
+        <div class="logo-wrapper">
+          <img src="/images/logo_gold.png" alt="Cakes by Lina Logo" class="site-logo">
+          <div class="logo-text">
+            <span class="logo-title">Cakes by Lina</span>
+            <span class="logo-tagline">SWEET MOMENTS OF LIFE</span>
+          </div>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#hero">Головна</a></li>
+          <li><a href="#about">Про нас</a></li>
+          <li><a href="#portfolio">Наші Торти</a></li>
+          <li><a href="#other-sweets">Інші Десерти</a></li>
+          <li><a href="#reviews">Відгуки</a></li>
+          <li><a href="#instagram">Instagram</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="side-decoration"></div>
+    <main>
+      <section id="hero" class="hero-section">
+        <div class="hero-content">
+          <h1>Виняткова солодкість для ваших особливих моментів</h1>
+          <p>Зроблено з любов'ю, створено для досконалості.</p>
+          <a href="#portfolio" class="cta-button">Переглянути Галерею</a>
+        </div>
+        <div class="hero-image">
+          <img src="/images/black_gold_cake.jpg" alt="Розкішний чорно-золотий торт">
+        </div>
+      </section>
+
+      <section id="about" class="about-section">
+        <div class="about-container">
+          <div class="about-image">
+            <img src="/images/author_lina_v2.jpg" alt="Ліна - Кондитер">
+          </div>
+          <div class="about-text">
+            <h2>Знайомтесь, Ліна</h2>
+            <p>Привіт! Я Ліна, серце і душа цих творінь. Випічка завжди була моєю пристрастю, способом ділитися радістю
+              та солодкістю зі світом. Кожен торт — це витвір мистецтва, приготований з найкращих інгредієнтів та з
+              великою любов'ю.</p>
+            <p>Вже понад <strong>5 років</strong> я створюю десерти, які роблять ваші свята незабутніми. За цей час ми
+              ощасливили більше <strong>800 клієнтів</strong> своїми смаколиками!</p>
+            <p>Від днів народження до весіль — я вірю, що кожне свято заслуговує на смак, який залишиться у вашій
+              пам'яті назавжди.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="portfolio" class="portfolio-section">
+        <div class="section-header">
+          <h2>Наші Творіння</h2>
+          <p>Погляд у наш солодкий світ</p>
+        </div>
+        <div class="portfolio-grid">
+          <div class="portfolio-item" data-id="1">
+            <img src="/images/cake_1.png" alt="Святковий торт">
+            <div class="overlay">
+              <h3>Святкові Торти</h3>
+              <button class="view-details-btn">Детальніше</button>
+            </div>
+          </div>
+          <div class="portfolio-item" data-id="2">
+            <img src="/images/cake_2.png" alt="Капкейки">
+            <div class="overlay">
+              <h3>Елегантні Капкейки</h3>
+              <button class="view-details-btn">Детальніше</button>
+            </div>
+          </div>
+          <div class="portfolio-item" data-id="3">
+            <img src="/images/cake_3.png" alt="Художній торт">
+            <div class="overlay">
+              <h3>Авторський Дизайн</h3>
+              <button class="view-details-btn">Детальніше</button>
+            </div>
+          </div>
+          <div class="portfolio-item" data-id="4">
+            <img src="/images/black_gold_cake.jpg" alt="Чорно-золотий торт">
+            <div class="overlay">
+              <h3>Приватні Святкування</h3>
+              <button class="view-details-btn">Детальніше</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="other-sweets" class="other-sweets-section">
+        <div class="section-header">
+          <h2>Інші Солодощі</h2>
+          <p>Більше ніж просто торти</p>
+        </div>
+        <div class="sweets-grid">
+          <div class="sweet-item">
+            <img src="/images/macarons.png" alt="Французькі Макаруни">
+            <h3>Французькі Макаруни</h3>
+          </div>
+          <div class="sweet-item">
+            <img src="/images/hero_cake.png" alt="Фруктові Пироги">
+            <h3>Свіжі Фруктові Пироги</h3>
+          </div>
+          <div class="sweet-item">
+            <img src="/images/cake_2.png" alt="Чізкейки">
+            <h3>Ніжні Чізкейки</h3>
+          </div>
+        </div>
+      </section>
+
+      <section id="reviews" class="reviews-section">
+        <div class="section-header">
+          <h2>Любовні Листи</h2>
+          <p>Теплі слова від наших клієнтів</p>
+        </div>
+        <div class="reviews-container">
+          <div class="review-card">
+            <p class="review-text">"Найкрасивіший і найсмачніший торт, який я коли-небудь пробувала! Ліна — справжній
+              митець."</p>
+            <p class="review-author">- Катерина М.</p>
+          </div>
+          <div class="review-card">
+            <p class="review-text">"Замовляла капкейки на вечірку, всі були в захваті. Не надто солодкі, просто
+              ідеальні."</p>
+            <p class="review-author">- Олена Р.</p>
+          </div>
+          <div class="review-card">
+            <p class="review-text">"Неймовірний дизайн і смак. Дуже рекомендую Ліну!"</p>
+            <p class="review-author">- Михайло П.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cake Detail Modal -->
+      <div id="cake-modal" class="modal hidden">
+        <div class="modal-content">
+          <span class="close-modal">&times;</span>
+          <div class="modal-body">
+            <div class="modal-image">
+              <img id="modal-img" src="" alt="Деталі Торта">
+            </div>
+            <div class="modal-info">
+              <h2 id="modal-title">Назва Торта</h2>
+              <p id="modal-desc">Опис тут.</p>
+              <div class="fillings-list">
+                <h3>Всередині Торта</h3>
+                <ul id="modal-fillings">
+                  <!-- Fillings populated by JS -->
+                </ul>
+              </div>
+              <div class="cross-section-preview">
+                <p>Вигляд у розрізі:</p>
+                <img id="modal-cross-section" src="" alt="Rozriz">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section id="instagram" class="instagram-section">
+        <div class="section-header">
+          <h2>Слідкуйте за нами</h2>
+          <p>@cakesby.linaa</p>
+        </div>
+        <div class="instagram-feed">
+          <div class="insta-placeholder">
+            <p>Перегляньте наші останні сторіз та новини в Instagram</p>
+            <a href="https://instagram.com/cakesby.linaa" target="_blank" class="insta-link">Перейти в Профіль</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Cakes by Lina. Всі права захищено.</p>
+    </footer>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
