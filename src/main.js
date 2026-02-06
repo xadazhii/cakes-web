@@ -471,14 +471,18 @@ document.addEventListener('DOMContentLoaded', () => {
         menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('active');
             navLinks.classList.toggle('active');
-            document.documentElement.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+            if (navLinks.classList.contains('active')) {
+                document.body.classList.add('menu-active');
+            } else {
+                document.body.classList.remove('menu-active');
+            }
         });
 
         navItems.forEach(item => {
             item.addEventListener('click', () => {
                 menuToggle.classList.remove('active');
                 navLinks.classList.remove('active');
-                document.documentElement.style.overflow = '';
+                document.body.classList.remove('menu-active');
             });
         });
     }

@@ -92,13 +92,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  /* Clean touch feeling */
 }
 
 html {
-  overflow-x: hidden;
-  scroll-behavior: smooth;
+  /* Remove scroll-behavior: smooth; as it can sometimes glitch on mobile */
   scroll-padding-top: 80px;
-  /* Offset for the fixed header */
 }
 
 body {
@@ -107,8 +107,24 @@ body {
   line-height: 1.6;
   background-color: var(--color-bg);
   width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  /* Explicitly allow vertical scroll */
   position: relative;
-  /* Remove overflow-x from body to fix mobile scroll issues */
+  min-height: 100%;
+}
+
+body.menu-active {
+  overflow: hidden;
+  /* Lock when burger is open */
+}
+
+#app {
+  width: 100%;
+  position: relative;
+  display: block;
 }
 
 a {
@@ -2450,14 +2466,26 @@ footer {
     font-size: 1.4rem;
   }
 
+  /* Disable reveal animations on mobile to prevent "stuck" feeling */
+  .reveal-up,
+  .reveal-left,
+  .reveal-right,
+  .reveal-zoom {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
   /* Hero Section */
   .hero-section {
     flex-direction: column-reverse;
     text-align: center;
     padding: 80px 1.5rem 2rem 1.5rem;
-    min-height: auto;
-    /* Fix 100vh scroll lock on mobile */
+    min-height: auto !important;
+    /* Force auto height on mobile */
   }
+
+  /* Fix 100vh scroll lock on mobile */
 
   .hero-content {
     align-items: center;
@@ -2508,8 +2536,9 @@ footer {
   .reviews-section,
   .recipes-section,
   .other-sweets-section {
-    min-height: auto;
-    padding: 4rem 1.5rem;
+    min-height: auto !important;
+    /* Force auto height on mobile */
+    padding: 3rem 1.5rem;
   }
 
   /* Portfolio */
