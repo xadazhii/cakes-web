@@ -94,16 +94,21 @@
   box-sizing: border-box;
 }
 
-html,
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  /* Offset for the fixed header */
+}
+
 body {
   font-family: var(--font-body);
   color: var(--color-text);
   line-height: 1.6;
   background-color: var(--color-bg);
-  /* Use global variable */
-  overflow-x: hidden;
   width: 100%;
   position: relative;
+  /* Remove overflow-x from body to fix mobile scroll issues */
 }
 
 a {
@@ -258,10 +263,14 @@ nav {
     gap: 2.5rem;
     transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
     z-index: 1000;
+    pointer-events: none;
+    /* Block clicks when hidden */
   }
 
   .nav-links.active {
     right: 0;
+    pointer-events: auto;
+    /* Enable clicks when visible */
   }
 
   .nav-links li {
@@ -354,13 +363,13 @@ nav {
   width: 500px;
   height: 800px;
   background-image: url('/images/gold_pattern.png');
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: top left;
-  opacity: 0.7;
+  opacity: 0.15;
   pointer-events: none;
-  z-index: 1;
-  /* Keep behind text */
+  /* Never block clicks */
+  z-index: 0;
   mix-blend-mode: multiply;
 
   /* Harmonious Glow & Contrast */
@@ -996,7 +1005,6 @@ nav {
   padding: 4rem 2rem;
   background-color: transparent;
   position: relative;
-  overflow: hidden;
 }
 
 .about-container {
@@ -1309,7 +1317,6 @@ nav {
   justify-content: center;
   text-align: center;
   position: relative;
-  overflow: hidden;
 }
 
 .reviews-section .section-header,
@@ -2447,7 +2454,9 @@ footer {
   .hero-section {
     flex-direction: column-reverse;
     text-align: center;
-    padding: 100px 1.5rem 4rem 1.5rem;
+    padding: 80px 1.5rem 2rem 1.5rem;
+    min-height: auto;
+    /* Fix 100vh scroll lock on mobile */
   }
 
   .hero-content {
@@ -2492,6 +2501,15 @@ footer {
   .about-stats {
     justify-content: center;
     gap: 1.5rem;
+  }
+
+  /* Shared Section Fixes */
+  .portfolio-section,
+  .reviews-section,
+  .recipes-section,
+  .other-sweets-section {
+    min-height: auto;
+    padding: 4rem 1.5rem;
   }
 
   /* Portfolio */

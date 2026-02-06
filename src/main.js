@@ -471,14 +471,14 @@ document.addEventListener('DOMContentLoaded', () => {
         menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('active');
             navLinks.classList.toggle('active');
-            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+            document.documentElement.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
         });
 
         navItems.forEach(item => {
             item.addEventListener('click', () => {
                 menuToggle.classList.remove('active');
                 navLinks.classList.remove('active');
-                document.body.style.overflow = '';
+                document.documentElement.style.overflow = '';
             });
         });
     }
