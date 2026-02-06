@@ -131,10 +131,29 @@
     }
 
     .contact-map {
-        min-height: 300px;
+        min-height: 250px;
         flex: 1;
-        /* Reset flex for mobile */
         order: -1;
-        /* Show map first on mobile? Or keep last. Let's keep distinct order */
+    }
+
+    .contact-text p,
+    .contact-text a {
+        font-size: 1.1rem;
+    }
+
+    .contact-item {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+    }
+
+    .contact-icon svg {
+        width: 22px;
+        height: 22px;
     }
 }

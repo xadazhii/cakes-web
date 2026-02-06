@@ -1193,11 +1193,21 @@ nav {
 @media (max-width: 850px) {
   .sweets-menu-container {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2rem;
   }
 
   .menu-image {
-    height: 300px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-image {
+    height: 200px;
+  }
+
+  .menu-title {
+    font-size: 1.8rem;
   }
 }
 
@@ -1484,8 +1494,8 @@ footer {
   max-width: 1100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
   margin-top: 3rem;
 }
 
@@ -2308,7 +2318,168 @@ footer {
   transform: scale(1);
 }
 
-/* Stagger Delays (for grids) */
+/* =========================================
+   Responsive Fixes & Refinements
+   ========================================= */
+
+@media (max-width: 1024px) {
+  .hero-section {
+    padding-top: 120px;
+    gap: 3rem;
+  }
+
+  .section-header h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* Header & Logo */
+  .site-header {
+    height: 70px;
+    padding: 0 1rem;
+  }
+
+  .site-logo {
+    height: 60px;
+  }
+
+  .logo-title {
+    font-size: 1.4rem;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 100px 1.5rem 4rem 1.5rem;
+  }
+
+  .hero-content {
+    align-items: center;
+  }
+
+  .hero-content h1 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+
+  .hero-content p {
+    border-left: none;
+    border-bottom: 2px solid var(--color-accent);
+    padding: 0 0 1rem 0;
+    font-size: 1.1rem;
+  }
+
+  .hero-image img {
+    box-shadow: 10px 10px 0 var(--color-secondary);
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .side-decoration {
+    width: 300px;
+    height: 500px;
+    opacity: 0.1 !important;
+    left: -50px;
+    top: 50px;
+    pointer-events: none;
+  }
+
+  /* About Section */
+  .about-container {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .about-stats {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  /* Portfolio */
+  .portfolio-slider-wrapper {
+    padding: 0 1rem;
+  }
+
+  .portfolio-slider {
+    gap: 1.5rem;
+    padding: 1rem 0.5rem 2rem 0.5rem;
+  }
+
+  .portfolio-card {
+    min-width: 280px;
+    max-width: 280px;
+    height: 450px;
+  }
+
+  .prev-btn,
+  .next-btn {
+    display: none !important;
+  }
+
+  /* Recipes */
+  .recipe-card {
+    flex-direction: column;
+  }
+
+  .recipe-image {
+    min-height: 250px;
+  }
+
+  .recipe-content {
+    padding: 1.5rem;
+  }
+
+  /* Modals */
+  .modal-body {
+    flex-direction: column;
+  }
+
+  .modal-image {
+    height: 300px;
+  }
+
+  .modal-content {
+    width: 95%;
+    margin: 20px auto;
+  }
+
+  .modal-info {
+    padding: 1.5rem;
+  }
+
+  .modal-info h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+  }
+
+  .portfolio-card {
+    min-width: 260px;
+    max-width: 260px;
+  }
+
+  .about-stats {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat-card {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
 .delay-100 {
   transition-delay: 0.1s;
 }
