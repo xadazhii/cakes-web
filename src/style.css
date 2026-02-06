@@ -153,9 +153,16 @@ img {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 3000;
+  /* High enough to stay above everything */
   border-bottom: 1px solid rgba(212, 175, 55, 0.1);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.menu-active .site-header {
+  background-color: transparent;
+  box-shadow: none;
+  border-bottom: none;
 }
 
 .site-header.scrolled {
@@ -252,7 +259,8 @@ nav {
   cursor: pointer;
   padding: 5px;
   /* Larger touch area */
-  z-index: 2010;
+  z-index: 4000;
+  /* Highest priority to close the menu */
   position: relative;
 }
 
@@ -268,32 +276,57 @@ nav {
 @media (max-width: 1024px) {
   .nav-links {
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
+    /* Cover entire screen */
     width: 100%;
     height: 100vh;
-    background: #fff;
-    /* Solid white for maximum reliability */
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     display: flex;
-    /* Override base display if needed */
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2.5rem;
-    z-index: 2000;
-    transform: translateX(100%);
-    /* Start completely off-screen to the right */
-    transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
-    pointer-events: none;
+    gap: 2rem;
+    z-index: 2500;
     opacity: 0;
-    /* Extra safety */
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    border-left: 2px solid var(--color-accent);
+    /* Elegant side accent */
+    padding: 2rem;
   }
 
   .nav-links.active {
-    transform: translateX(0);
-    /* Slide into view */
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
+  }
+
+  /* Enhanced Mobile Lang Switcher */
+  .lang-switcher .lang-btn {
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    color: var(--color-text);
+  }
+
+  .lang-switcher .lang-btn.active {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
+  .lang-switcher .lang-divider {
+    color: rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem;
+  }
+
+  .lang-switcher {
+    margin-top: 1rem;
+    padding: 10px 20px;
+    background: rgba(212, 175, 55, 0.05);
+    border-radius: 30px;
+    border: 1px solid rgba(212, 175, 55, 0.1);
   }
 
   .nav-links li {
@@ -307,36 +340,37 @@ nav {
     transform: translateY(0);
   }
 
+  /* Staggered entry animation */
   .nav-links.active li:nth-child(1) {
-    transition-delay: 0.2s;
+    transition-delay: 0.1s;
   }
 
   .nav-links.active li:nth-child(2) {
-    transition-delay: 0.3s;
+    transition-delay: 0.15s;
   }
 
   .nav-links.active li:nth-child(3) {
-    transition-delay: 0.4s;
+    transition-delay: 0.2s;
   }
 
   .nav-links.active li:nth-child(4) {
-    transition-delay: 0.5s;
+    transition-delay: 0.25s;
   }
 
   .nav-links.active li:nth-child(5) {
-    transition-delay: 0.6s;
+    transition-delay: 0.3s;
   }
 
   .nav-links.active li:nth-child(6) {
-    transition-delay: 0.7s;
+    transition-delay: 0.35s;
   }
 
   .nav-links.active li:nth-child(7) {
-    transition-delay: 0.8s;
+    transition-delay: 0.4s;
   }
 
   .nav-links.active li:nth-child(8) {
-    transition-delay: 0.9s;
+    transition-delay: 0.45s;
   }
 
   .mobile-menu-toggle {
@@ -346,18 +380,45 @@ nav {
   /* Hamburger to X Animation */
   .mobile-menu-toggle.active .bar:nth-child(1) {
     transform: translateY(9px) rotate(45deg);
+    background: var(--color-accent);
   }
 
   .mobile-menu-toggle.active .bar:nth-child(2) {
     opacity: 0;
+    transform: translateX(20px);
   }
 
   .mobile-menu-toggle.active .bar:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
+    transform: translateY(-10px) rotate(-45deg);
+    background: var(--color-accent);
   }
 
   .nav-links a {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    font-family: var(--font-heading);
+    color: var(--color-text);
+    transition: all 0.3s ease;
+    padding: 0.5rem 0;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a:hover,
+  .nav-links a:active {
+    color: var(--color-accent);
+    letter-spacing: 1px;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.05);
+    max-width: 200px;
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
   }
 }
 
