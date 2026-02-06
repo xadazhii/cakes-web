@@ -126,9 +126,9 @@ img {
 .site-header {
   padding: 0.8rem 2rem;
   background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   position: fixed;
   top: 0;
   left: 0;
@@ -470,20 +470,25 @@ nav {
   border-radius: 20px;
   box-shadow: 20px 20px 0 var(--color-secondary);
   opacity: 0;
-  animation: float 6s ease-in-out infinite;
+}
+
+@media (min-width: 1025px) {
+  .hero-image img {
+    animation: float 6s ease-in-out infinite;
+  }
 }
 
 @keyframes float {
   0% {
-    transform: translateY(0px);
+    transform: translate3d(0, 0, 0);
   }
 
   50% {
-    transform: translateY(-15px);
+    transform: translate3d(0, -15px, 0);
   }
 
   100% {
-    transform: translateY(10px);
+    transform: translate3d(0, 10px, 0);
   }
 }
 
@@ -2367,21 +2372,20 @@ footer {
 .reveal-right,
 .reveal-zoom {
   opacity: 0;
-  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-  will-change: opacity, transform;
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* Directions */
 .reveal-up {
-  transform: translateY(50px);
+  transform: translate3d(0, 20px, 0);
 }
 
 .reveal-left {
-  transform: translateX(-50px);
+  transform: translate3d(-20px, 0, 0);
 }
 
 .reveal-right {
-  transform: translateX(50px);
+  transform: translate3d(20px, 0, 0);
 }
 
 .reveal-zoom {
@@ -2393,7 +2397,7 @@ footer {
 .reveal-left.active,
 .reveal-right.active {
   opacity: 1;
-  transform: translate(0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 .reveal-zoom.active {
@@ -2420,7 +2424,14 @@ footer {
 
   /* Header & Logo */
   .site-header {
-    height: 70px;
+    height: 60px;
+    padding: 0 1rem;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background-color: #fff;
+  }
+
+  .site-header.scrolled {
     padding: 0 1rem;
   }
 

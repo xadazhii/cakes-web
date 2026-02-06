@@ -437,23 +437,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const navItems = document.querySelectorAll('.nav-links li');
 
     // Header scroll effects
-    window.addEventListener('scroll', () => {
+    let ticking = false;
+    let cachedWindowHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+    window.addEventListener('resize', () => {
+        cachedWindowHeight = document.documentElement.scrollHeight - window.innerHeight;
+    }, { passive: true });
+
+    const updateScrollEffects = () => {
         const scrolled = window.scrollY;
 
-        // Shrink header on scroll
         if (scrolled > 50) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
 
-        // Update scroll progress bar
-        const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = (scrolled / windowHeight) * 100;
-        if (scrollProgress) {
-            scrollProgress.style.width = `${progress}%`;
+        if (scrollProgress && cachedWindowHeight > 0) {
+            const progress = (scrolled / cachedWindowHeight) * 100;
+            scrollProgress.style.width = `${Math.min(100, Math.max(0, progress))}%`;
         }
-    });
+        ticking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(updateScrollEffects);
+            ticking = true;
+        }
+    }, { passive: true });
 
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', () => {
