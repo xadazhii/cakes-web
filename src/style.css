@@ -97,7 +97,8 @@
 }
 
 html {
-  /* Remove scroll-behavior: smooth; as it can sometimes glitch on mobile */
+  /* Let the browser handle the main document scroll naturally */
+  overflow-x: hidden;
   scroll-padding-top: 80px;
 }
 
@@ -109,11 +110,9 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-  /* Explicitly allow vertical scroll */
   position: relative;
-  min-height: 100%;
+  /* Remove overflow-y: auto as it traps touch/touchpad events on a growable container */
+  overflow-x: hidden;
 }
 
 body.menu-active {
