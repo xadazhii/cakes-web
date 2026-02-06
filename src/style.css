@@ -126,11 +126,16 @@ img {
 .site-header {
   padding: 0.5rem 1rem;
   /* Reduced padding */
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.95);
+  /* Slightly transparent for premium feel */
+  backdrop-filter: blur(10px);
+  /* Blur background behind header */
   box-shadow: 0 4px 20px rgba(212, 175, 55, 0.1);
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 100;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
   border-bottom: 2px solid #F3E5AB;
 }
 
