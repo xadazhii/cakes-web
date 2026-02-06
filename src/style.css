@@ -289,16 +289,23 @@ nav {
     align-items: center;
     gap: 2rem;
     z-index: 2500;
+
+    /* Animation State: Hidden (Right) */
+    transform: translateX(100%);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+
+    /* Transition */
+    transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.5s ease, visibility 0.5s;
+
     border-left: 2px solid var(--color-accent);
-    /* Elegant side accent */
     padding: 2rem;
   }
 
   .nav-links.active {
+    /* Animation State: Visible (Center) */
+    transform: translateX(0);
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
