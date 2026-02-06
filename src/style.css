@@ -245,13 +245,15 @@ nav {
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  width: 30px;
-  height: 21px;
+  width: 32px;
+  height: 22px;
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 0;
-  z-index: 1001;
+  padding: 5px;
+  /* Larger touch area */
+  z-index: 2010;
+  position: relative;
 }
 
 .mobile-menu-toggle .bar {
@@ -276,16 +278,20 @@ nav {
     justify-content: center;
     align-items: center;
     gap: 2.5rem;
-    transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
-    z-index: 1000;
+    transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 2000;
+    visibility: hidden;
+    /* Prevent interaction when hidden */
     pointer-events: none;
-    /* Block clicks when hidden */
+    transform: translateX(100%);
+    /* Use transform for smoother animation */
+    right: 0;
   }
 
   .nav-links.active {
-    right: 0;
+    transform: translateX(0);
+    visibility: visible;
     pointer-events: auto;
-    /* Enable clicks when visible */
   }
 
   .nav-links li {
