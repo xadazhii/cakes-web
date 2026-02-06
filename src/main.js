@@ -1,94 +1,663 @@
 import './style.css'
+import './contacts.css'
 
-// Cake Data
+// Translation Data
+const translations = {
+    uk: {
+        nav_home: "Головна",
+        nav_about: "Про мене",
+        nav_portfolio: "Торти",
+        btn_order: "Замовити",
+        ingredients_title: "СКЛАД:",
+        cake1_title: "Фісташка-Малина",
+        cake1_desc: "Вишукане поєднання горіхових нот та ягідної свіжості.",
+        cake2_title: "Ваніль-Ягоди",
+        cake2_desc: "Ванільний бісквіт на молоці, шоколадний ганаш, мікс ягідного конфі, крем маскарпоне з ваніллю",
+        cake3_title: "Снікерс",
+        cake3_desc: "Шоколадний бісквіт, арахіс з карамеллю, крем чіз, шоколадний ганаш, хрусткі рисові кульки",
+        cake4_title: "Шоколадна Вишня",
+        cake4_desc: "Шоколадний бісквіт, шоколадний ганаш, крем з маскарпоне, вишневий конфітюр, рисові кульки",
+        cake5_title: "Фереро Роше",
+        cake5_desc: "Шоколадний бісквіт з шоколадом, запечений фундучний чізкейк, шоколадний крем з нутелою, ганаш на молочному шоколаді, хрустяшка з фундуком та шоколадом",
+        cake6_title: "Орео",
+        cake6_desc: "Шоколадний бісквіт, запечений чізкейк з орео, крем з орео, шоколадний ганаш",
+        cake7_title: "Банан-Шоколад",
+        cake7_desc: "Шоколадний бісквіт (або ванільний), шоколадний крем з нутелою, ванільний крем, свіжий банан, карамель, хрусткі кульки",
+        cake8_title: "Кокос-Вишня",
+        cake8_desc: "Кокосові бісквіти, запечений кокосовий чізкейк, вишневий конфітюр, ванільний крем з маскарпоне",
+        cake9_title: "Малиновий Чізкейк",
+        cake9_desc: "Ванільний бісквіт, чізкейк запечений, малиновий ганаш, малиновий конфітюр, ванільний крем-чіз",
+        cake10_title: "Тропіки",
+        cake10_desc: "Кокосовий бісквіт, ванільний крем чіз з кокосом, конфі манго/маракуя, ганаш манго маракуя з маскарпоне",
+        cake11_title: "Мілка",
+        cake11_desc: "Шоколадний бісквіт, мус на білому шоколаді, шоколадний ганаш, хрусткі кульки",
+        cake12_title: "Нутелла",
+        cake12_desc: "Насичений шоколадний смак з фундуком та ніжним мусом.",
+        cake13_title: "Молочна дівчинка",
+        cake13_desc: "Ніжні ванільні коржі з легким йогуртовим кремом та ягодами.",
+        nav_recipes: "Техкартки",
+        nav_sweets: "Інші десерти",
+        nav_reviews: "Відгуки",
+        nav_contacts: "Контакти",
+        contacts_h2: "Контакти",
+        address_label: "Адреса",
+        address_value: "Брунталь / Оломоуц, Чехія",
+        phone_label: "Телефон",
+        insta_label: "Ми в Instagram",
+        nav_insta: "Instagram",
+        hero_h1: "Авторські десерти для незабутніх моментів",
+        hero_p: "Зроблено з любов'ю",
+        hero_btn: "Переглянути Торти",
+        about_h2: "Бабій Ангеліна",
+        about_p1: "Я — кондитер, який спеціалізується на якісних десертах і тортах. У своїй роботі поєдную якісні інгредієнти, сучасні техніки та увагу до деталей. Для мене важливо, щоб десерт був не лише смачним, а й візуально привабливим.",
+        about_p2: "Працюю з індивідуальними замовленнями та завжди орієнтуюсь на побажання клієнта, зберігаючи власний стиль і якість у кожному виробі.",
+        stat_clients: "Щасливих Клієнтів",
+        stat_experience: "Років Досвіду",
+        portfolio_h2: "Авторські Торти",
+        portfolio_p: "Оберіть свій ідеальний смак",
+        btn_more: "Детальніше",
+        recipes_h2: "Технологічні Картки",
+        recipes_p: "Професійні рецепти для вашої кухні",
+        pdf_badge: "PDF Формат",
+        buy_btn: "Придбати",
+        cheesecake_title: "Чізкейк 'Класичний'",
+        cheesecake_desc: "Детальна покрокова інструкція приготування ідеально ніжного чізкейку з випіканням. Секрети ідеальної текстури та стабільності.",
+        meringue_title: "Меренговий Рулет",
+        meringue_desc: "Легкий та невагомий десерт, який підкорює з першого шматочка. Навчіться готувати хрустку скоринку та ніжний крем.",
+        sweets_h2: "Інші десерти",
+        sweets_p: "Більше ніж просто торти",
+        macarons_title: "Макарони",
+        macarons_desc: "Крихка скоринка та ніжний ганаш.",
+        macarons_list: "Баунті • Дорблю • Рафаело • Лотус • Вишня • Манго • Смородина • Снікерс • Орео • Фісташка • Бейліз • Груша • Мілка • Бабл Гам • Фереро • Арахіс",
+        desserts_title: "Інші десерти",
+        desserts_desc: "Ідеальний варіант для кенді-бару або подарунка.",
+        desserts_list: "Павлова • Капкейки • Мусові тістечка • Тарталетки • Чізкейки на паличці • Еклери • Шу • Десерти в стаканчиках • Печиво (горішки, трубочки, мадлен)",
+        reviews_h2: "Відгуки",
+        reviews_p: "Теплі слова від клієнтів",
+        insta_h2: "Слідкуйте за нами",
+        insta_p: "Перегляньте наші останні сторіз та новини в Instagram",
+        insta_btn: "Перейти в Профіль",
+        modal_inside: "Всередині Торта",
+        modal_cross: "Вигляд у розрізі:",
+        feat_ingredients: "Детальний перелік інгредієнтів",
+        feat_base: "Технологія приготування основи",
+        feat_bake: "Режим випікання та охолодження",
+        feat_decor: "Поради щодо декорування",
+        feat_meringue: "Рецепт ідеальної меренги",
+        feat_cream: "Приготування авторського крему",
+        feat_berry: "Робота з ягідною начинкою",
+        feat_rolling: "Секрети згортання без тріщин",
+        port1_title: "Святкові Торти",
+        port2_title: "Елегантні Капкейки",
+        port3_title: "Авторський Дизайн",
+        port4_title: "Приватні Святкування",
+        sweet1_title: "Французькі Макаруни",
+        sweet2_title: "Свіжі Фруктові Пироги",
+        sweet3_title: "Ніжні Чізкейки"
+    },
+    cs: {
+        nav_home: "Hlavní",
+        nav_about: "O mně",
+        nav_portfolio: "Dorty",
+        btn_order: "Objednat",
+        ingredients_title: "SLOŽENÍ:",
+        cake1_title: "Pistácie-Malina",
+        cake1_desc: "Vynikající kombinace ořechových tónů a svěžesti lesních plodů.",
+        cake2_title: "Vanilka-Lesní plody",
+        cake2_desc: "Vanilkový korpus, čokoládová ganache, mix bobulového konfitu, mascarpone krém s vanilkou",
+        cake3_title: "Snickers",
+        cake3_desc: "Čokoládový korpus, arašídy s karamelem, cream cheese, čokoládová ganache, křupavé rýžové kuličky",
+        cake4_title: "Čokoládová Višeň",
+        cake4_desc: "Čokoládový korpus, čokoládová ganache, mascarpone krém, višňový konfit, rýžové kuličky",
+        cake5_title: "Ferrero Rocher",
+        cake5_desc: "Čokoládový korpus s čokoládou, pečený lískooříškový cheesecake, čokoládový krém s Nutellou, ganache z mléčné čokolády, křupavá vrstva s lískovými ořechy a čokoládou",
+        cake6_title: "Oreo",
+        cake6_desc: "Čokoládový korpus, pečený cheesecake s Oreo, Oreo krém, čokoládová ganache",
+        cake7_title: "Banán-Čokoláda",
+        cake7_desc: "Čokoládový korpus (nebo vanilkový), čokoládový krém s Nutellou, vanilkový krém, čerstvý banán, karamel, křupavé kuličky",
+        cake8_title: "Kokos-Višeň",
+        cake8_desc: "Kokosový korpus, pečený kokosový cheesecake, višňový konfit, vanilkový mascarpone krém",
+        cake9_title: "Malinový Cheesecake",
+        cake9_desc: "Vanilkový korpus, pečený cheesecake, malinová ganache, malinový konfit, vanilkový krém",
+        cake10_title: "Tropické ovoce",
+        cake10_desc: "Kokosový korpus, vanilkový krém s kokosem, mango/maracuja konfit, mango/maracuja ganache s mascarpone",
+        cake11_title: "Milka",
+        cake11_desc: "Čokoládový korpus, pěna z bílé čokolády, čokoládová ganache, křupavé kuličky",
+        cake12_title: "Nutella",
+        cake12_desc: "Intenzivní čokoládová chuť s lískovými oříšky a jemnou pěnou.",
+        cake13_title: "Mléčná holka",
+        cake13_desc: "Jemné vanilkové pláty s lehkým jogurtovým krémem a lesním ovocem.",
+        nav_recipes: "Recepty",
+        nav_sweets: "Další dezerty",
+        nav_reviews: "Recenze",
+        nav_contacts: "Kontakty",
+        contacts_h2: "Kontakty",
+        address_label: "Adresa",
+        address_value: "Bruntál / Olomouc, Česká republika",
+        phone_label: "Telefon",
+        insta_label: "Instagram",
+        nav_insta: "Instagram",
+        hero_h1: "Autorské dezerty pro nezapomenutelné okamžiky",
+        hero_p: "Vyrobeno s láskou",
+        hero_btn: "Prohlédnout dorty",
+        about_h2: "Babiy Angelina",
+        about_p1: "Jsem cukrářka specializující se na kvalitní dezerty a dorty. Ve své práci kombinuji kvalitní suroviny, moderní techniky a smysl pro detail. Je pro mě důležité, aby dezert byl nejen chutný, ale i vizuálně přitažlivý.",
+        about_p2: "Pracuji na individuálních zakázkách a vždy se orientuji na přání klienta, přičemž si zachovávám vlastní styl a kvalitu v každém výrobku.",
+        stat_clients: "Šťastných klientů",
+        stat_experience: "Let zkušeností",
+        portfolio_h2: "Autorské dorty",
+        portfolio_p: "Vyberte si svou dokonalou chuť",
+        btn_more: "Více informací",
+        recipes_h2: "Technologické karty",
+        recipes_p: "Profesionální recepty pro vaši kuchyni",
+        pdf_badge: "Formát PDF",
+        buy_btn: "Koupit",
+        cheesecake_title: "Cheesecake 'Klasik'",
+        cheesecake_desc: "Detailní krok za krokem návod na přípravu dokonale jemného pečeného cheesecaku. Tajemství dokonalé textury a stability.",
+        meringue_title: "Meringuová roláda",
+        meringue_desc: "Lehký a nadýchaný dezert, který si vás získá od prvního sousta. Naučte se připravit křupavou kůrku a jemný krém.",
+        sweets_h2: "Další dezerty",
+        sweets_p: "Více než jen dorty",
+        macarons_title: "Makronky",
+        macarons_desc: "Křupavá skořápka a jemná ganache.",
+        macarons_list: "Bounty • DorBlue • Raffaello • Lotus • Višeň • Mango • Černý rybíz • Snickers • Oreo • Pistácie • Baileys • Hruška • Milka • Bubble Gum • Ferrero • Arašídy",
+        desserts_title: "Ostatní dezerty",
+        desserts_desc: "Ideální volba pro candy bar nebo dárek.",
+        desserts_list: "Pavlova • Cupcakes • Pěnové dezerty • Tartaletky • Cheesecake nanuky • Eklérky • Choux • Dezerty v pohárcích • Sušenky & sladké pečivo (oříšky, trubičky, madlenky)",
+        reviews_h2: "Recenze",
+        reviews_p: "Hřejivá slova od klientů",
+        insta_h2: "Sledujte nás",
+        insta_p: "Podívejte se na naše nejnovější příběhy a novinky na Instagramu",
+        insta_btn: "Přejít na profil",
+        modal_inside: "Uvnitř dortu",
+        modal_cross: "Pohled v řezu:",
+        feat_ingredients: "Detailní seznam ingrediencí",
+        feat_base: "Technologie přípravy základu",
+        feat_bake: "Režim pečení a chlazení",
+        feat_decor: "Tipy na zdobení",
+        feat_meringue: "Recept na dokonalý merengue",
+        feat_cream: "Příprava autorského krému",
+        feat_berry: "Práce s bobulovou náplní",
+        feat_rolling: "Tajemství rolování bez prasklin",
+        port1_title: "Slavnostní dorty",
+        port2_title: "Elegantní cupcakes",
+        port3_title: "Autorský design",
+        port4_title: "Soukromé oslavy",
+        sweet1_title: "Francouzské makronky",
+        sweet2_title: "Čerstvé ovocné koláče",
+        sweet3_title: "Jemné cheesecaky"
+    }
+};
+
+// Cake Data (Translated)
+// Cake Data (Translated)
 const cakes = [
     {
         id: 1,
-        title: "Мрійливий Святковий Торт",
-        description: "Ідеальний вибір для днів народження та особливих подій. Цей торт має вологі ванільні коржі, поєднані зі свіжим полуничним компоте та шовковистим кремом на основі швейцарської меренги.",
-        image: "/images/cake_1.png",
-        crossSection: "/images/cake_2.png", // Reuse image as placeholder for now
-        fillings: ["Ванільний бісквіт", "Полуничне компоте", "Крем з швейцарської меренги"]
+        uk: {
+            title: "Фісташка-Малина",
+            description: "Вишукане поєднання горіхових нот та ягідної свіжості.",
+            fillings: ["Ванільний масляний бісквіт", "Конфі з малини", "Фісташковий ганаш", "Крем чіз з маскарпоне"]
+        },
+        cs: {
+            title: "Pistácie-Malina",
+            description: "Vynikající kombinace ořechových tónů a svěžesti bobulí.",
+            fillings: ["Vanilkový máslový piškot", "Malinové konfit", "Pistáciová ganache", "Krém s mascarpone"]
+        },
+        image: "/images/c1.png",
+        crossSection: "/images/c1.png"
     },
     {
         id: 2,
-        title: "Елегантне Асорті Капкейків",
-        description: "Досконалість у кожному шматочку. Наші капкейки доступні в різних смаках, включаючи Червоний Оксамит, Подвійний Шоколад та Лимонну Цедру, прикрашені нашим фірмовим кремом.",
-        image: "/images/cake_2.png",
-        crossSection: "/images/cake_1.png", // Placeholder
-        fillings: ["Різноманітні смаки", "Крем-чіз", "Їстівне золото"]
+        uk: {
+            title: "Ваніль-Ягоди",
+            description: "Класика, яка ніколи не набридає.",
+            fillings: ["Ванільний бісквіт на молоці", "Шоколадний ганаш", "Мікс ягідного конфі", "Крем маскарпоне з ваніллю"]
+        },
+        cs: {
+            title: "Vanilka-Lesní plody",
+            description: "Klasika, která nikdy neomrzí.",
+            fillings: ["Vanilkový piškot s mlékem", "Čokoládová ganache", "Mix bobulového konfit", "Krém mascarpone s vanilkou"]
+        },
+        image: "/images/c2.png",
+        crossSection: "/images/c2.png"
     },
     {
         id: 3,
-        title: "Авторський Золотий Ярус",
-        description: "Справжній витвір мистецтва для розкішних подій. Шари темного шоколадного ганашу та горіхового праліне гарантують, що смак буде таким же вишуканим, як і вигляд.",
-        image: "/images/cake_3.png",
-        crossSection: "/images/hero_cake.png", // Placeholder
-        fillings: ["Темний шоколадний бісквіт", "Горіхове праліне", "Ганаш з темного шоколаду"]
+        uk: {
+            title: "Снікерс",
+            description: "Улюблений смак у форматі торта.",
+            fillings: ["Шоколадний бісквіт", "Арахіс з карамеллю", "Крем чіз", "Шоколадний ганаш", "Хрусткі рисові кульки"]
+        },
+        cs: {
+            title: "Snickers",
+            description: "Oblíbená chuť ve formě dortu.",
+            fillings: ["Čokoládový piškot", "Arašídy s karamelem", "Sýrový krém", "Čokoládová ganache", "Křupavé rýžové kuličky"]
+        },
+        image: "/images/c3.png",
+        crossSection: "/images/c3.png"
     },
     {
         id: 4,
-        title: "Опівнічне Золото",
-        description: "Поєднання чорненої какао-глазурі та текстурованого золота. Всередині — насичені шоколадні коржі з прошарком солоної карамелі та хрустким шаром.",
-        image: "/images/black_gold_cake.jpg",
-        crossSection: "/images/cake_3.png", // Placeholder
-        fillings: ["Шоколадний бісквіт", "Солона карамель", "Хрусткий шар (кранч)"]
+        uk: {
+            title: "Шоколадна Вишня",
+            description: "Гармонія шоколадної гірчинки та вишневої кислинки.",
+            fillings: ["Шоколадний бісквіт", "Шоколадний ганаш", "Крем з маскарпоне", "Вишневий конфітюр", "Рисові кульки"]
+        },
+        cs: {
+            title: "Čokoládová Višeň",
+            description: "Harmonie čokoládové hořkosti a višňové kyselosti.",
+            fillings: ["Čokoládový piškot", "Čokoládová ganache", "Krém s mascarpone", "Višňový džem", "Rýžové kuličky"]
+        },
+        image: "/images/c4.png",
+        crossSection: "/images/c4.png"
+    },
+    {
+        id: 5,
+        uk: {
+            title: "Фереро Роше",
+            description: "Розкішний горіхово-шоколадний десерт.",
+            fillings: ["Шоколадний бісквіт з шоколадом", "Запечений фундучний чізкейк", "Шоколадний крем з нутелою", "Ганаш на молочному шоколаді", "Хрустяшка з фундуком та шоколадом"]
+        },
+        cs: {
+            title: "Ferrero Rocher",
+            description: "Luxusní oříškovo-čokoládový dezert.",
+            fillings: ["Čokoládový piškot", "Pečený lískooříškový cheesecake", "Čokoládový krém s nutellou", "Ganache z mléčné čokolády", "Křupavá vrstva s lískovými oříšky"]
+        },
+        image: "/images/c5.png",
+        crossSection: "/images/c5.png"
+    },
+    {
+        id: 6,
+        uk: {
+            title: "Орео",
+            description: "Для фанатів легендарного печива.",
+            fillings: ["Шоколадний бісквіт", "Запечений чізкейк з орео", "Крем з орео", "Шоколадний ганаш"]
+        },
+        cs: {
+            title: "Oreo",
+            description: "Pro fanoušky legendární sušenky.",
+            fillings: ["Čokoládový piškot", "Pečený cheesecake s oreo", "Krém s oreo", "Čokoládová ganache"]
+        },
+        image: "/images/c6.png",
+        crossSection: "/images/c6.png"
+    },
+    {
+        id: 7,
+        uk: {
+            title: "Банан-Шоколад",
+            description: "Солодкий та насичений смак.",
+            fillings: ["Шоколадний бісквіт (або ванільний)", "Шоколадний крем з нутелою", "Ванільний крем", "Свіжий банан", "Карамель", "Хрусткі кульки"]
+        },
+        cs: {
+            title: "Banán-Čokoláda",
+            description: "Sladká a sytá chuť.",
+            fillings: ["Čokoládový piškot (nebo vanilkový)", "Čokoládový krém s nutellou", "Vanilkový krém", "Čerstvý banán", "Karamel", "Křupavé kuličky"]
+        },
+        image: "/images/c7.png",
+        crossSection: "/images/c7.png"
+    },
+    {
+        id: 8,
+        uk: {
+            title: "Кокос-Вишня",
+            description: "Екзотична ніжність.",
+            fillings: ["Кокосові бісквіти", "Запечений кокосовий чізкейк", "Вишневий конфітюр", "Ванільний крем з маскарпоне"]
+        },
+        cs: {
+            title: "Kokos-Višeň",
+            description: "Exotická jemnost.",
+            fillings: ["Kokosové piškoty", "Pečený kokosový cheesecake", "Višňový džem", "Vanilkový krém s mascarpone"]
+        },
+        image: "/images/c8.png",
+        crossSection: "/images/c8.png"
+    },
+    {
+        id: 9,
+        uk: {
+            title: "Малиновий Чізкейк",
+            description: "Подвійна насолода малиною.",
+            fillings: ["Ванільний бісквіт", "Чізкейк запечений", "Малиновий ганаш", "Малиновий конфітюр", "Ванільний крем-чіз"]
+        },
+        cs: {
+            title: "Malinový Cheesecake",
+            description: "Dvojité malinové potěšení.",
+            fillings: ["Vanilkový piškot", "Pečený cheesecake", "Malinová ganache", "Malinový džem", "Vanilkový krém sýr"]
+        },
+        image: "/images/c9.png",
+        crossSection: "/images/c9.png"
+    },
+    {
+        id: 10,
+        uk: {
+            title: "Тропіки",
+            description: "Сонячний смак манго та маракуї.",
+            fillings: ["Кокосовий бісквіт", "Ванільний крем-чіз з кокосом", "Конфі манго-маракуя", "Ганаш манго-маракуя з маскарпоне"]
+        },
+        cs: {
+            title: "Tropiky",
+            description: "Slunečná chuť manga a marakuji.",
+            fillings: ["Kokosový piškot", "Vanilkový krém sýr s kokosem", "Konfit mango-marakuja", "Ganache mango-marakuja s mascarpone"]
+        },
+        image: "/images/c10.png",
+        crossSection: "/images/c10.png"
+    },
+    {
+        id: 11,
+        uk: {
+            title: "Мілка",
+            description: "Найніжніший шоколадний смак.",
+            fillings: ["Шоколадний бісквіт", "Мус на білому шоколаді", "Шоколадний ганаш", "Хрусткі кульки"]
+        },
+        cs: {
+            title: "Milka",
+            description: "Nejjemnější čokoládová chuť.",
+            fillings: ["Čokoládový piškot", "Pěna z bílé čokolády", "Čokoládová ganache", "Křupavé kuličky"]
+        },
+        image: "/images/c11.png",
+        crossSection: "/images/c11.png"
+    },
+    {
+        id: 12,
+        uk: {
+            title: "Нутелла",
+            description: "Насичений шоколадний смак з фундуком та ніжним мусом.",
+            fillings: ["Шоколадний бісквіт", "Хрусткий прошарок", "Шоколадний ганаш", "Фундучний ганаш", "Мус нутела", "Крем з нутеллою"]
+        },
+        cs: {
+            title: "Nutella",
+            description: "Intenzivní čokoládová chuť s lískovými oříšky a jemnou pěnou.",
+            fillings: ["Čokoládový korpus", "Křupavá vrstva", "Čokoládová ganache", "Lískooříšková ganache", "Nutella pěna", "Nutella krém"]
+        },
+        image: "/images/c12.png",
+        crossSection: "/images/c12.png"
+    },
+    {
+        id: 13,
+        uk: {
+            title: "Молочна дівчинка",
+            description: "Класичний ніжний торт на згущеному молоці з ягідним акцентом.",
+            fillings: ["Тоненькі ванільні коржі", "Ягідне конфі", "Йогуртовий крем"]
+        },
+        cs: {
+            title: "Mléčná holka",
+            description: "Klasický jemný dort z kondenzovaného mléka s bobulovým akcentem.",
+            fillings: ["Tenké vanilkové pláty", "Bobulové konfit", "Jogurtový krém"]
+        },
+        image: "/images/c13.png",
+        crossSection: "/images/c13.png"
     }
 ];
+
+let currentLang = 'uk';
 
 // Modal Logic
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Сайт Cakes by Lina завантажено');
 
-    const modal = document.getElementById('cake-modal');
-    const closeBtn = document.querySelector('.close-modal');
-    const modalImg = document.getElementById('modal-img');
-    const modalTitle = document.getElementById('modal-title');
-    const modalDesc = document.getElementById('modal-desc');
-    const modalFillings = document.getElementById('modal-fillings');
-    const modalCrossSection = document.getElementById('modal-cross-section');
 
-    // Open Modal
-    document.querySelectorAll('.view-details-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const portfolioItem = e.target.closest('.portfolio-item');
-            const id = parseInt(portfolioItem.getAttribute('data-id'));
-            const cake = cakes.find(c => c.id === id);
+    // Language Switching Logic
+    const updateContent = (lang) => {
+        currentLang = lang;
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang][key]) {
+                const content = translations[lang][key];
+                // Automatically wrap list dots with gold styling
+                el.innerHTML = content.includes(' • ')
+                    ? content.replace(/ • /g, ' <span class="gold-sep">•</span> ')
+                    : content;
+            }
+        });
 
-            if (cake) {
-                modalImg.src = cake.image;
-                modalTitle.textContent = cake.title;
-                modalDesc.textContent = cake.description;
-                modalCrossSection.src = cake.crossSection;
+        // Update active class on switcher
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+        });
 
-                // Populate fillings
-                modalFillings.innerHTML = cake.fillings.map(filling => `<li>${filling}</li>`).join('');
+        // Update HTML lang attribute
+        document.documentElement.lang = lang === 'uk' ? 'uk' : 'cs';
+    };
 
-                modal.classList.add('visible');
-                document.body.style.overflow = 'hidden'; // Prevent scrolling
+    // Initialize Switcher
+    const langSwitchers = document.querySelectorAll('.lang-btn');
+    langSwitchers.forEach(btn => {
+        btn.addEventListener('click', () => {
+            updateContent(btn.getAttribute('data-lang'));
+        });
+    });    // Mobile Menu Logic
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const navItems = document.querySelectorAll('.nav-links a');
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        });
+
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    }
+
+    // Smooth Scrolling for all anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                const headerOffset = 80;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
             }
         });
     });
 
-    // Close Modal
-    const closeModal = () => {
-        modal.classList.remove('visible');
+    // Intersection Observer
+    const observerOptions = { threshold: 0.15 };
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('section, .hero-section').forEach(section => {
+        sectionObserver.observe(section);
+    });
+
+    // Reviews Slider Logic
+    const sliderContainer = document.getElementById('reviewsSlider');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+    if (sliderContainer && prevBtn && nextBtn) {
+        const scrollAmount = 400; // Adjust scroll step as needed
+
+        prevBtn.addEventListener('click', () => {
+            sliderContainer.scrollBy({
+                left: -scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+
+        nextBtn.addEventListener('click', () => {
+            sliderContainer.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // Portfolio Slider Logic
+    const portfolioSlider = document.getElementById('portfolioSlider');
+    const prevPortfolioBtn = document.querySelector('.prev-portfolio-btn');
+    const nextPortfolioBtn = document.querySelector('.next-portfolio-btn');
+
+    if (portfolioSlider && prevPortfolioBtn && nextPortfolioBtn) {
+        const scrollAmount = 340; // Card width + gap
+
+        prevPortfolioBtn.addEventListener('click', () => {
+            portfolioSlider.scrollBy({
+                left: -scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+
+        nextPortfolioBtn.addEventListener('click', () => {
+            portfolioSlider.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // Modal Logic
+    const modal = document.getElementById('cakeModal');
+    const modalCloseBtn = document.querySelector('.close-modal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDescription');
+    const modalFillings = document.getElementById('modalFillings');
+    const modalImage = document.getElementById('modalMainImage');
+    const modalOrderBtn = document.querySelector('.modal-order-btn');
+
+    function openModal(cakeId) {
+        const cake = cakes.find(c => c.id == cakeId);
+        if (!cake) return;
+
+        const lang = currentLang; // Use the global currentLang variable
+
+        modalTitle.textContent = cake[lang].title;
+        modalDesc.textContent = cake[lang].description;
+        modalImage.src = cake.image;
+        modalImage.alt = cake[lang].title;
+
+        // Populate fillings
+        modalFillings.innerHTML = '';
+        cake[lang].fillings.forEach(filling => {
+            const li = document.createElement('li');
+            li.textContent = filling;
+            modalFillings.appendChild(li);
+        });
+
+        // Update Order Button Text dynamically just in case
+        modalOrderBtn.textContent = translations[lang].btn_order || (lang === 'uk' ? 'Замовити' : 'Objednat');
+
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+
+    function closeModal() {
+        modal.classList.remove('show');
         document.body.style.overflow = '';
-    };
+    }
 
-    closeBtn.addEventListener('click', closeModal);
+    // Event Delegation for Portfolio Items (Card or Button click)
+    const portfolioSection = document.getElementById('portfolio');
+    if (portfolioSection) {
+        portfolioSection.addEventListener('click', (e) => {
+            const card = e.target.closest('.portfolio-card');
+            // If click is on a nav button, ignore
+            if (e.target.closest('.slider-btn')) return;
 
-    // Close on click outside
+            if (card) {
+                const cakeId = card.getAttribute('data-id');
+                openModal(cakeId);
+            }
+        });
+    }
+
+    if (modalCloseBtn) {
+        modalCloseBtn.addEventListener('click', closeModal);
+    }
+
     window.addEventListener('click', (e) => {
         if (e.target === modal) {
             closeModal();
         }
     });
 
-    // Close on Esc key
     window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('visible')) {
+        if (e.key === 'Escape' && modal.classList.contains('show')) {
             closeModal();
         }
     });
+    /* =========================================
+       Scroll Reveal Animations
+       ========================================= */
+    const revealOnScroll = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            }
+        });
+    };
+
+    const revealObserver = new IntersectionObserver(revealOnScroll, {
+        root: null,
+        threshold: 0.1,
+        rootMargin: "0px"
+    });
+
+    const observeElements = (selector, className, delay = 0) => {
+        document.querySelectorAll(selector).forEach((el, index) => {
+            el.classList.add(className);
+            if (delay === 'stagger') {
+                el.style.transitionDelay = `${(index % 3) * 0.15}s`;
+            } else if (delay > 0) {
+                el.style.transitionDelay = `${delay}s`;
+            }
+            revealObserver.observe(el);
+        });
+    };
+
+    // Apply animations
+    observeElements('.section-header', 'reveal-up');
+    observeElements('.portfolio-card', 'reveal-up'); // Let the slider handle visibility, but add fade
+    observeElements('.recipe-card', 'reveal-up', 'stagger');
+    observeElements('.menu-block', 'reveal-up', 'stagger');
+
+    // About
+    const aboutImg = document.querySelector('.about-image img');
+    if (aboutImg) {
+        aboutImg.parentElement.classList.add('reveal-left');
+        revealObserver.observe(aboutImg.parentElement);
+    }
+    const aboutContent = document.querySelector('.about-content');
+    if (aboutContent) {
+        aboutContent.classList.add('reveal-right');
+        revealObserver.observe(aboutContent);
+    }
+
+    // Contacts
+    observeElements('.contact-item', 'reveal-left', 'stagger');
+    const contactMap = document.querySelector('.contact-map');
+    if (contactMap) {
+        contactMap.classList.add('reveal-zoom');
+        contactMap.style.transitionDelay = '0.3s';
+        revealObserver.observe(contactMap);
+    }
+
+    // Footer
+    const footer = document.querySelector('.site-footer');
+    if (footer) {
+        footer.classList.add('reveal-up');
+        revealObserver.observe(footer);
+    }
 });
