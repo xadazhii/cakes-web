@@ -430,9 +430,30 @@ document.addEventListener('DOMContentLoaded', () => {
             updateContent(btn.getAttribute('data-lang'));
         });
     });    // Mobile Menu Logic
+    const header = document.querySelector('.site-header');
+    const scrollProgress = document.querySelector('.scroll-progress');
     const menuToggle = document.querySelector('.mobile-menu-toggle');
     const navLinks = document.querySelector('.nav-links');
-    const navItems = document.querySelectorAll('.nav-links a');
+    const navItems = document.querySelectorAll('.nav-links li');
+
+    // Header scroll effects
+    window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+
+        // Shrink header on scroll
+        if (scrolled > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+
+        // Update scroll progress bar
+        const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = (scrolled / windowHeight) * 100;
+        if (scrollProgress) {
+            scrollProgress.style.width = `${progress}%`;
+        }
+    });
 
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', () => {
