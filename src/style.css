@@ -3479,18 +3479,33 @@ footer {
 
   /* 1. Image Section */
   .modal-image {
-    height: 140px !important;
-    /* Slightly larger for visual balance */
+    display: block !important;
+    /* Force visible */
+    height: 120px !important;
+    /* Compact but visible */
+    min-height: 120px !important;
     flex: 0 0 auto !important;
     width: 100% !important;
     object-fit: cover !important;
     margin-bottom: 0 !important;
+    position: relative !important;
+    border-radius: 0 !important;
+  }
+
+  .modal-images {
+    display: block !important;
+    height: 120px !important;
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
   .modal-image img {
     height: 100% !important;
     width: 100% !important;
     object-fit: cover !important;
+    display: block !important;
   }
 
   /* 2. Content Section - Flex Column */
@@ -3504,8 +3519,8 @@ footer {
   }
 
   .modal-images {
-    display: none !important;
-    /* Hide extra images container if present */
+    display: block !important;
+    /* Re-enable container if it wraps image */
   }
 
   .modal-info {
