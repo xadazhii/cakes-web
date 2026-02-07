@@ -2890,6 +2890,15 @@ footer {
     gap: 1.5rem;
   }
 
+  .about-container {
+    gap: 0.5rem !important;
+  }
+
+  .about-image {
+    order: 2;
+    margin-bottom: 0.5rem;
+  }
+
   .about-name {
     order: 1;
     /* Name first */
@@ -2898,24 +2907,18 @@ footer {
   }
 
   .about-name h2 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    color: var(--color-accent);
-  }
-
-  .about-image {
-    order: 2;
-    /* Photo second */
+    font-size: 1.6rem;
+    margin-bottom: 0.2rem;
   }
 
   .about-image img {
-    width: 220px;
-    height: 220px;
-    border: 5px solid var(--color-accent);
+    width: 160px;
+    height: 160px;
+    border: 3px solid var(--color-accent);
     box-shadow:
-      0 0 0 8px rgba(212, 175, 55, 0.15),
-      0 0 40px rgba(212, 175, 55, 0.4),
-      0 10px 30px rgba(0, 0, 0, 0.1);
+      0 0 0 4px rgba(212, 175, 55, 0.15),
+      0 0 20px rgba(212, 175, 55, 0.3);
+    margin-bottom: 0.5rem;
   }
 
   .about-text {
@@ -2930,10 +2933,10 @@ footer {
   }
 
   .about-text p {
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 0.9rem;
+    line-height: 1.35;
     text-align: left;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
   }
 
   .about-stats {
@@ -3104,13 +3107,43 @@ footer {
   }
 
   .about-stats {
-    flex-direction: column;
+    flex-direction: row;
+    /* Horizontal to save height */
     align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    width: 100%;
   }
 
   .stat-card {
+    width: 48%;
+    padding: 0.8rem 0.5rem;
+    max-width: none;
+  }
+
+  .stat-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .stat-value {
+    font-size: 1.2rem;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+  }
+
+  .compact-order-btn {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.6rem 2rem;
+    font-size: 0.95rem;
     width: 100%;
-    max-width: 200px;
+    max-width: 280px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
   }
 
   /* Cake Modal - ULTRA COMPACT (Aggressive Fit) */
