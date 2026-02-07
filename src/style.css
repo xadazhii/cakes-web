@@ -1798,39 +1798,38 @@ footer {
 /* Explicit aggressive override for all phones (iPhone 11 Pro, 12, 13, 14, etc.) */
 @media (max-width: 480px) {
   .modal-image img {
-    height: 140px !important;
+    height: 120px !important;
   }
 
-  /* Even smaller image */
   .modal-info {
-    padding: 0.8rem !important;
+    padding: 0.5rem !important;
   }
 
   .modal-info h2 {
-    font-size: 0.75rem !important;
+    font-size: 0.6rem !important;
     line-height: 1.1 !important;
     margin-bottom: 0.2rem !important;
   }
 
   .modal-info p {
-    font-size: 0.65rem !important;
-    line-height: 1.2 !important;
-    margin-bottom: 0.5rem !important;
+    font-size: 0.55rem !important;
+    line-height: 1.1 !important;
+    margin-bottom: 0.3rem !important;
   }
 
   .fillings-list {
-    padding: 0.4rem !important;
-    margin: 0.4rem 0 !important;
+    padding: 0.3rem !important;
+    margin: 0.3rem 0 !important;
   }
 
   .fillings-list h3 {
-    font-size: 0.7rem !important;
-    margin-bottom: 0.2rem !important;
+    font-size: 0.55rem !important;
+    margin-bottom: 0.1rem !important;
   }
 
   .fillings-list li {
-    font-size: 0.65rem !important;
-    padding: 0.1rem 0 !important;
+    font-size: 0.5rem !important;
+    padding: 0 !important;
   }
 }
 
@@ -3302,9 +3301,10 @@ footer {
 (max-height: 900px) {
 
   /* 1. Aggressively Compact Image */
+  /* 1. Aggressively Compact Image */
   .modal-image {
-    height: 160px !important;
-    /* Reduced from 180px */
+    height: 120px !important;
+    /* Reduced from 180px/160px */
     width: 100% !important;
     object-fit: cover !important;
     margin-bottom: 0 !important;
@@ -3379,41 +3379,39 @@ footer {
   }
 
   /* 5. Typography Fix: Allow wrap but minimal size */
-  /* 5. Typography Fix: Allow wrap but minimal size */
   .modal-info h2 {
-    font-size: 0.75rem !important;
-    /* Miniature title */
-    margin-bottom: 0.2rem !important;
+    font-size: 0.5rem !important;
+    /* Tiny! */
+    margin-bottom: 0.1rem !important;
     line-height: 1.1 !important;
     white-space: normal !important;
   }
 
   .modal-info>p {
-    font-size: 0.65rem !important;
-    /* Miniature description */
-    line-height: 1.2 !important;
-    margin-bottom: 0.4rem !important;
+    font-size: 0.45rem !important;
+    /* Micro! */
+    line-height: 1.1 !important;
+    margin-bottom: 0.2rem !important;
     -webkit-line-clamp: 3;
   }
 
   /* 6. Ultra-Compact Ingredients List */
-  /* 6. Ultra-Compact Ingredients List */
   .fillings-list {
-    margin: 0.3rem 0 !important;
-    padding: 0.3rem 0.5rem !important;
-    border-left-width: 2px !important;
+    margin: 0.2rem 0 !important;
+    padding: 0.2rem 0.4rem !important;
+    border-left-width: 1px !important;
   }
 
   .fillings-list h3 {
-    font-size: 0.7rem !important;
+    font-size: 0.45rem !important;
     margin-bottom: 0.1rem !important;
     font-weight: 600 !important;
   }
 
   .fillings-list li {
-    font-size: 0.65rem !important;
+    font-size: 0.4rem !important;
     padding: 0 !important;
-    line-height: 1.2 !important;
+    line-height: 1 !important;
   }
 
   /* 7. Button Position */
