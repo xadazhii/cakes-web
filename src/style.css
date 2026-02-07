@@ -3230,36 +3230,43 @@ footer {
 
   /* 3. Floating Close Button */
   /* 3. Floating Close Button */
-  /* 3. Floating Close Button - FORCED VISIBILITY */
+  /* Ensure container allows absolute positioning for child elements like close button */
+  .modal-images {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* 3. Floating Close Button - FORCED VISIBILITY & POSITION */
   .close-modal {
     position: absolute !important;
-    top: 15px !important;
-    right: 15px !important;
-    z-index: 9999 !important;
-    /* Highest priority */
+    top: 10px !important;
+    /* EXACTLY 10px from top of image */
+    right: 10px !important;
+    /* EXACTLY 10px from right of image */
+    z-index: 1000 !important;
+    /* High priority */
     background-color: #ffffff !important;
     /* Solid white background */
     border-radius: 50% !important;
-    width: 35px !important;
-    height: 35px !important;
+    width: 30px !important;
+    /* Compact size */
+    height: 30px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     border: none !important;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
-    /* Strong shadow */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3) !important;
+    /* Contrast shadow */
     color: #000000 !important;
     /* Black icon */
-    font-size: 24px !important;
+    font-size: 20px !important;
+    /* Adjusted for smaller button */
     line-height: 1 !important;
     cursor: pointer !important;
-    opacity: 1 !important;
-    /* Ensure no transparency issues */
-  }
-
-  /* Ensure container allows absolute positioning */
-  .modal-images {
-    position: relative !important;
+    opacity: 0.9 !important;
   }
 
   /* 4. Compact Content Area */
