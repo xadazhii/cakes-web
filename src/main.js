@@ -397,30 +397,52 @@ let currentLang = 'uk';
 
 // Modal Logic
 document.addEventListener('DOMContentLoaded', () => {
+    // Force unregister all service workers to fix cache/manifest issues
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(registrations => {
+            for (let registration of registrations) {
+                registration.unregister();
+                console.log('Service Worker unregistered');
+            }
+        });
+    }
     console.log('Сайт Cakes by Lina завантажено');
 
 
     // Language Switching Logic
     const updateContent = (lang) => {
-        currentLang = lang;
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            if (translations[lang][key]) {
-                const content = translations[lang][key];
-                // Automatically wrap list dots with gold styling
-                el.innerHTML = content.includes(' • ')
-                    ? content.replace(/ • /g, ' <span class="gold-sep">•</span> ')
-                    : content;
-            }
-        });
+        if (currentLang === lang) return;
 
-        // Update active class on switcher
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-        });
+        const app = document.getElementById('app');
+        app.classList.add('lang-transition');
+        app.classList.add('lang-switching');
 
-        // Update HTML lang attribute
-        document.documentElement.lang = lang === 'uk' ? 'uk' : 'cs';
+        setTimeout(() => {
+            currentLang = lang;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    const content = translations[lang][key];
+                    // Automatically wrap list dots with gold styling
+                    el.innerHTML = content.includes(' • ')
+                        ? content.replace(/ • /g, ' <span class="gold-sep">•</span> ')
+                        : content;
+                }
+            });
+
+            // Update active class on switcher
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+            });
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang === 'uk' ? 'uk' : 'cs';
+
+            // Fade back in
+            setTimeout(() => {
+                app.classList.remove('lang-switching');
+            }, 50);
+        }, 300);
     };
 
     // Initialize Switcher
@@ -577,56 +599,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalImage = document.getElementById('modalMainImage');
     const modalOrderBtn = document.querySelector('.modal-order-btn');
 
-    // Seamless Pattern Cache
-    const seamlessPatternCache = {};
-
-    function getSeamlessBackground(src) {
-        if (seamlessPatternCache[src]) {
-            return Promise.resolve(seamlessPatternCache[src]);
-        }
-
-        return new Promise((resolve) => {
-            const img = new Image();
-            // Removed crossOrigin to avoid CORS issues
-
-            img.onload = () => {
-                try {
-                    const canvas = document.createElement('canvas');
-                    // Width = 2x image width (Normal + Mirrored)
-                    const w = img.naturalWidth;
-                    const h = img.naturalHeight;
-                    canvas.width = w * 2;
-                    canvas.height = h;
-
-                    const ctx = canvas.getContext('2d');
-
-                    // 1. Draw Normal Image (Left)
-                    ctx.drawImage(img, 0, 0);
-
-                    // 2. Draw Mirrored Image (Right)
-                    ctx.save();
-                    ctx.translate(w * 2, 0); // Move origin to far right
-                    ctx.scale(-1, 1);        // Flip coordinate system
-                    ctx.drawImage(img, 0, 0); // Draw into the flipped space (occupies w to 2w)
-                    ctx.restore();
-
-                    const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
-                    seamlessPatternCache[src] = dataUrl;
-                    console.log('Seamless pattern generated successfully:', src);
-                    resolve(dataUrl);
-                } catch (e) {
-                    console.error('Seamless generation failed (Canvas/CORS):', e);
-                    resolve(src); // Fallback
-                }
-            };
-            img.onerror = (err) => {
-                console.error('Seamless image load failed:', err);
-                resolve(src);
-            };
-            img.src = src;
-        });
-    }
-
     function openModal(cakeId) {
         const cake = cakes.find(c => c.id == cakeId);
         if (!cake) return;
@@ -638,18 +610,10 @@ document.addEventListener('DOMContentLoaded', () => {
         modalImage.src = cake.image;
         modalImage.alt = cake[lang].title;
 
-        // Apply tiled background for mobile
+        // Apply clean background for mobile
         const modalImagesContainer = document.querySelector('.modal-images');
         if (modalImagesContainer) {
-            // 1. Set initial simple background (immediate feedback)
-            modalImagesContainer.style.backgroundImage = `url(${cake.image})`;
-
-            // 2. Generate and apply seamless mirrored pattern
-            getSeamlessBackground(cake.image).then(seamlessUrl => {
-                if (modal.classList.contains('show')) { // Only apply if still open
-                    modalImagesContainer.style.backgroundImage = `url(${seamlessUrl})`;
-                }
-            });
+            modalImagesContainer.style.background = 'transparent';
         }
 
         // Populate fillings
@@ -668,8 +632,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function closeModal() {
-        modal.classList.remove('show');
-        document.body.style.overflow = '';
+        modal.classList.add('hiding');
+
+        // Wait for the animation to complete (matching CSS duration 0.4s)
+        setTimeout(() => {
+            modal.classList.remove('show');
+            modal.classList.remove('hiding');
+            document.body.style.overflow = '';
+        }, 400);
     }
 
     // Event Delegation for Portfolio Items (Card or Button click)
