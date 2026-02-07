@@ -2740,7 +2740,8 @@ footer {
   }
 
   .about-image {
-    order: 1;
+    order: 2;
+    /* Photo comes after name */
   }
 
   .about-image img {
@@ -2751,7 +2752,8 @@ footer {
   }
 
   .about-text {
-    order: 2;
+    order: 1;
+    /* Name/text comes first */
   }
 
   .about-text h2 {
