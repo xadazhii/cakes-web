@@ -1798,34 +1798,39 @@ footer {
 /* Explicit aggressive override for all phones (iPhone 11 Pro, 12, 13, 14, etc.) */
 @media (max-width: 480px) {
   .modal-image img {
-    height: 160px !important;
+    height: 140px !important;
   }
 
+  /* Even smaller image */
   .modal-info {
-    padding: 1rem !important;
+    padding: 0.8rem !important;
   }
 
   .modal-info h2 {
-    font-size: 1rem !important;
+    font-size: 0.75rem !important;
     line-height: 1.1 !important;
+    margin-bottom: 0.2rem !important;
   }
 
   .modal-info p {
-    font-size: 0.8rem !important;
+    font-size: 0.65rem !important;
     line-height: 1.2 !important;
+    margin-bottom: 0.5rem !important;
   }
 
   .fillings-list {
-    padding: 0.5rem !important;
-    margin: 0.5rem 0 !important;
+    padding: 0.4rem !important;
+    margin: 0.4rem 0 !important;
   }
 
   .fillings-list h3 {
-    font-size: 0.9rem !important;
+    font-size: 0.7rem !important;
+    margin-bottom: 0.2rem !important;
   }
 
   .fillings-list li {
-    font-size: 0.8rem !important;
+    font-size: 0.65rem !important;
+    padding: 0.1rem 0 !important;
   }
 }
 
@@ -3374,38 +3379,40 @@ footer {
   }
 
   /* 5. Typography Fix: Allow wrap but minimal size */
+  /* 5. Typography Fix: Allow wrap but minimal size */
   .modal-info h2 {
-    font-size: 0.95rem !important;
-    /* Tiny title for small screens */
+    font-size: 0.75rem !important;
+    /* Miniature title */
     margin-bottom: 0.2rem !important;
     line-height: 1.1 !important;
     white-space: normal !important;
   }
 
   .modal-info>p {
-    font-size: 0.75rem !important;
-    /* Tiny description */
-    line-height: 1.25 !important;
+    font-size: 0.65rem !important;
+    /* Miniature description */
+    line-height: 1.2 !important;
     margin-bottom: 0.4rem !important;
     -webkit-line-clamp: 3;
   }
 
   /* 6. Ultra-Compact Ingredients List */
+  /* 6. Ultra-Compact Ingredients List */
   .fillings-list {
-    margin: 0.4rem 0 !important;
-    padding: 0.4rem 0.6rem !important;
-    border-left-width: 3px !important;
+    margin: 0.3rem 0 !important;
+    padding: 0.3rem 0.5rem !important;
+    border-left-width: 2px !important;
   }
 
   .fillings-list h3 {
-    font-size: 0.85rem !important;
-    margin-bottom: 0.2rem !important;
+    font-size: 0.7rem !important;
+    margin-bottom: 0.1rem !important;
     font-weight: 600 !important;
   }
 
   .fillings-list li {
-    font-size: 0.8rem !important;
-    padding: 0.1rem 0 !important;
+    font-size: 0.65rem !important;
+    padding: 0 !important;
     line-height: 1.2 !important;
   }
 
