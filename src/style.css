@@ -1795,6 +1795,40 @@ footer {
   }
 }
 
+/* Explicit aggressive override for all phones (iPhone 11 Pro, 12, 13, 14, etc.) */
+@media (max-width: 480px) {
+  .modal-image img {
+    height: 160px !important;
+  }
+
+  .modal-info {
+    padding: 1rem !important;
+  }
+
+  .modal-info h2 {
+    font-size: 1rem !important;
+    line-height: 1.1 !important;
+  }
+
+  .modal-info p {
+    font-size: 0.8rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .fillings-list {
+    padding: 0.5rem !important;
+    margin: 0.5rem 0 !important;
+  }
+
+  .fillings-list h3 {
+    font-size: 0.9rem !important;
+  }
+
+  .fillings-list li {
+    font-size: 0.8rem !important;
+  }
+}
+
 /* Recipes Section */
 .recipes-section {
   padding: 6rem 2rem;
