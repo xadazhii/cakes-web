@@ -577,6 +577,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalImage = document.getElementById('modalMainImage');
     const modalOrderBtn = document.querySelector('.modal-order-btn');
 
+    // Seamless Pattern Cache
+    const seamlessPatternCache = {};
+
+    function getSeamlessBackground(src) {
+        if (seamlessPatternCache[src]) {
+            return Promise.resolve(seamlessPatternCache[src]);
+        }
+
+        return new Promise((resolve) => {
+            const img = new Image();
+            img.crossOrigin = "Anonymous";
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                // Width = 2x image width (Normal + Mirrored)
+                const w = img.naturalWidth;
+                const h = img.naturalHeight;
+                canvas.width = w * 2;
+                canvas.height = h;
+
+                const ctx = canvas.getContext('2d');
+
+                // 1. Draw Normal Image (Left)
+                ctx.drawImage(img, 0, 0);
+
+                // 2. Draw Mirrored Image (Right)
+                ctx.save();
+                ctx.translate(w * 2, 0); // Move origin to far right
+                ctx.scale(-1, 1);        // Flip coordinate system
+                ctx.drawImage(img, 0, 0); // Draw into the flipped space (occupies w to 2w)
+                ctx.restore();
+
+                const dataUrl = canvas.toDataURL('image/jpeg', 0.8); // Optimization: jpeg quality 0.8
+                seamlessPatternCache[src] = dataUrl;
+                resolve(dataUrl);
+            };
+            img.onerror = () => resolve(src); // Fallback to original
+            img.src = src;
+        });
+    }
+
     function openModal(cakeId) {
         const cake = cakes.find(c => c.id == cakeId);
         if (!cake) return;
@@ -591,7 +631,15 @@ document.addEventListener('DOMContentLoaded', () => {
         // Apply tiled background for mobile
         const modalImagesContainer = document.querySelector('.modal-images');
         if (modalImagesContainer) {
+            // 1. Set initial simple background (immediate feedback)
             modalImagesContainer.style.backgroundImage = `url(${cake.image})`;
+
+            // 2. Generate and apply seamless mirrored pattern
+            getSeamlessBackground(cake.image).then(seamlessUrl => {
+                if (modal.classList.contains('show')) { // Only apply if still open
+                    modalImagesContainer.style.backgroundImage = `url(${seamlessUrl})`;
+                }
+            });
         }
 
         // Populate fillings
