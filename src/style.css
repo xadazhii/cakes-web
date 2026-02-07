@@ -3104,6 +3104,53 @@ footer {
     width: 100%;
     max-width: 200px;
   }
+
+  /* Cake Modal - Compact & Elegant */
+  .modal-image {
+    height: 200px;
+  }
+
+  .modal-info {
+    padding: 1rem 1.2rem;
+  }
+
+  .modal-info h2 {
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .modal-info>p {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #666;
+    margin-bottom: 1rem;
+  }
+
+  .fillings-list {
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 10px;
+    border-left: 3px solid var(--color-accent);
+    background: rgba(255, 250, 240, 0.8);
+  }
+
+  .fillings-list h3 {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .fillings-list li {
+    font-size: 0.85rem;
+    padding: 0.3rem 0;
+  }
+
+  .order-btn {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    border-radius: 25px;
+    margin-top: 1rem;
+  }
 }
 
 .delay-100 {
