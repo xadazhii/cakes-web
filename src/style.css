@@ -2655,8 +2655,8 @@ footer {
   .hero-image img {
     box-shadow: 0 20px 40px rgba(197, 160, 89, 0.25);
     max-width: 85%;
-    border-radius: 50% 50% 10px 10px;
-    /* Distinctive shape */
+    border-radius: 30px;
+    /* Softer rounded rect instead of cropped arch */
     margin: 0 auto;
     filter: brightness(1.02) contrast(1.05);
   }
@@ -2707,6 +2707,16 @@ footer {
     min-width: 280px;
     max-width: 280px;
     height: 450px;
+  }
+
+  /* Make View Details always visible on mobile */
+  .portfolio-item .view-details-btn {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    margin-top: 1rem;
+    background: var(--color-accent);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   }
 
   .prev-btn,
