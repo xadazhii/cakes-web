@@ -3480,13 +3480,15 @@ footer {
   /* 1. Image Section */
   .modal-image {
     display: block !important;
-    /* Force visible */
-    height: 120px !important;
-    /* Compact but visible */
-    min-height: 120px !important;
+    height: 180px !important;
+    /* Increased from 120px to show more detail */
+    min-height: 180px !important;
     flex: 0 0 auto !important;
     width: 100% !important;
-    object-fit: cover !important;
+    object-fit: contain !important;
+    /* SHOW FULL PHOTO - NO CROP */
+    background-color: #f9f9f9 !important;
+    /* Light background for 'contain' fit */
     margin-bottom: 0 !important;
     position: relative !important;
     border-radius: 0 !important;
@@ -3494,17 +3496,19 @@ footer {
 
   .modal-images {
     display: block !important;
-    height: 120px !important;
+    height: 180px !important;
     flex: 0 0 auto !important;
     width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
+    background-color: #f9f9f9 !important;
   }
 
   .modal-image img {
     height: 100% !important;
     width: 100% !important;
-    object-fit: cover !important;
+    object-fit: contain !important;
+    /* SHOW FULL PHOTO - NO CROP */
     display: block !important;
   }
 
