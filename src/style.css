@@ -1740,8 +1740,26 @@ footer {
   }
 
   .modal-image img {
-    height: 250px;
+    height: 220px;
+    /* Reduced from 250px+ for general mobile compactness */
     min-height: auto;
+    object-fit: cover;
+  }
+
+  .modal-info {
+    padding: 1.5rem !important;
+    /* Reduced from 2rem or 3rem */
+  }
+
+  .modal-info h2 {
+    font-size: 1.6rem;
+    /* Smaller title */
+    margin-bottom: 0.5rem;
+  }
+
+  .fillings-list {
+    margin: 1rem 0;
+    padding: 1rem;
   }
 }
 
