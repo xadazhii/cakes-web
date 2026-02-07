@@ -3523,16 +3523,22 @@ footer {
 
   /* 3. Typography - Readable but Compact */
   .modal-info h2 {
-    font-size: 1.1rem !important;
-    /* Readable Title */
+    font-size: 0.95rem !important;
+    /* Slightly smaller to fit single line */
     margin-bottom: 0.3rem !important;
     line-height: 1.1 !important;
     color: var(--color-accent) !important;
+    white-space: nowrap !important;
+    /* Force single line as requested */
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    text-align: center !important;
+    /* Center the title too for balance */
   }
 
   .modal-info>p {
-    font-size: 0.85rem !important;
-    /* Readable Body */
+    font-size: 0.8rem !important;
+    /* Slightly smaller for more room */
     line-height: 1.2 !important;
     margin-bottom: 0.5rem !important;
     color: #555 !important;
@@ -3541,6 +3547,8 @@ footer {
     /* Limit description lines */
     -webkit-box-orient: vertical;
     overflow: hidden;
+    text-align: center !important;
+    /* Center desc for card look */
   }
 
   /* 4. Compact Ingredients - Grid Layout */
@@ -3582,15 +3590,18 @@ footer {
     flex-shrink: 0;
   }
 
-  /* 5. Button */
+  /* 5. Button - Centered and Lifted */
   .order-btn {
-    margin-top: auto !important;
-    /* Push to bottom */
-    padding: 0.75rem 0 !important;
+    margin: 0.5rem auto 1rem auto !important;
+    /* Centered with top/bottom margin */
+    padding: 0.6rem 0 !important;
     font-size: 0.9rem !important;
-    width: 100% !important;
+    width: 80% !important;
+    /* Not full width, looks nicer */
     border-radius: 50px !important;
-    margin-bottom: 0 !important;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3) !important;
+    display: block !important;
+    text-align: center !important;
   }
 
   /* 6. Close Button - Floating on Image */
