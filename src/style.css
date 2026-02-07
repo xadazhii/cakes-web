@@ -2739,9 +2739,22 @@ footer {
     gap: 1.5rem;
   }
 
+  .about-name {
+    order: 1;
+    /* Name first */
+    width: 100%;
+    text-align: center;
+  }
+
+  .about-name h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-accent);
+  }
+
   .about-image {
     order: 2;
-    /* Photo comes after name */
+    /* Photo second */
   }
 
   .about-image img {
@@ -2752,8 +2765,8 @@ footer {
   }
 
   .about-text {
-    order: 1;
-    /* Name/text comes first */
+    order: 3;
+    /* Description third */
   }
 
   .about-text h2 {
