@@ -3242,32 +3242,37 @@ footer {
   /* 3. Floating Close Button - FORCED VISIBILITY & POSITION */
 
   /* 3. Floating Close Button - FIXED POSITION (NUCLEAR OPTION) */
-  /* 3. Floating Close Button - FIXED BELOW HEADER */
+  /* 3. Floating Close Button - REFINED POSITION */
   .close-modal {
     position: fixed !important;
-    top: 90px !important;
-    /* Moved down to clear header */
+    top: 80px !important;
+    /* Slightly higher */
     right: 20px !important;
     z-index: 2147483647 !important;
-    /* Max priority */
 
-    /* Button Design */
-    width: 40px !important;
-    height: 40px !important;
-    background-color: rgba(255, 255, 255, 0.9) !important;
-    /* Semi-transparent white */
-    color: #000000 !important;
-    /* Black cross */
+    /* Elegant Button Design */
+    width: 35px !important;
+    /* Smaller, more elegant */
+    height: 35px !important;
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    color: #333 !important;
     border-radius: 50% !important;
     border: none !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    font-size: 24px !important;
-    font-weight: bold !important;
+    font-size: 22px !important;
+    /* Adjusted icon size */
+    font-weight: normal !important;
     cursor: pointer !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    /* Softer shadow */
     opacity: 1 !important;
+    transition: transform 0.2s ease !important;
+  }
+
+  .close-modal:active {
+    transform: scale(0.9) !important;
   }
 
   /* 4. Compact Content Area */
