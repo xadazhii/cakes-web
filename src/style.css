@@ -3241,29 +3241,33 @@ footer {
 
   /* 3. Floating Close Button - FORCED VISIBILITY & POSITION */
 
-  /* 3. Floating Close Button - ON TOP OF CARD */
+  /* 3. Floating Close Button - FIXED POSITION (NUCLEAR OPTION) */
   .close-modal {
-    position: absolute !important;
-    top: 10px !important;
-    right: 10px !important;
-    z-index: 9999 !important;
-    /* Highest priority */
-    background-color: #ffffff !important;
-    /* Solid white background */
-    width: 32px !important;
-    height: 32px !important;
+    position: fixed !important;
+    /* Fixed relative to screen viewport */
+    top: 20px !important;
+    /* Space from top */
+    right: 20px !important;
+    /* Space from right */
+    z-index: 2147483647 !important;
+    /* Max Z-index */
+
+    /* Button Design */
+    width: 40px !important;
+    height: 40px !important;
+    background-color: #333333 !important;
+    /* Dark background */
+    color: #ffffff !important;
+    /* White cross */
     border-radius: 50% !important;
+    border: 2px solid white !important;
+    /* White border for contrast */
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    border: none !important;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
-    /* Strong shadow */
-    color: #000000 !important;
-    /* Black icon */
-    font-size: 20px !important;
-    line-height: 1 !important;
+    font-size: 24px !important;
     cursor: pointer !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;
     opacity: 1 !important;
   }
 
