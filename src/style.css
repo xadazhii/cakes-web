@@ -1428,11 +1428,43 @@ nav {
 
 @media (max-width: 480px) {
   .menu-image {
-    height: 200px;
+    height: 160px;
+    border-radius: 12px;
+    border: 2px solid rgba(212, 175, 55, 0.2);
+  }
+
+  .menu-block {
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  }
+
+  .menu-content {
+    padding: 1rem 0.8rem;
   }
 
   .menu-title {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+    color: var(--color-accent);
+  }
+
+  .menu-desc {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+
+  .menu-divider {
+    width: 40px;
+    margin-bottom: 1rem;
+  }
+
+  .menu-text-list {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .sweets-menu-container {
+    gap: 1.5rem;
   }
 }
 
