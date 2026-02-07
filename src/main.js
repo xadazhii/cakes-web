@@ -588,6 +588,12 @@ document.addEventListener('DOMContentLoaded', () => {
         modalImage.src = cake.image;
         modalImage.alt = cake[lang].title;
 
+        // Apply tiled background for mobile
+        const modalImagesContainer = document.querySelector('.modal-images');
+        if (modalImagesContainer) {
+            modalImagesContainer.style.backgroundImage = `url(${cake.image})`;
+        }
+
         // Populate fillings
         modalFillings.innerHTML = '';
         cake[lang].fillings.forEach(filling => {

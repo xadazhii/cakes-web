@@ -3486,9 +3486,13 @@ footer {
     margin: 0 !important;
     padding: 0 !important;
     background-color: #f9f9f9 !important;
-    /* Fallback for 'contain' fit */
+    /* Fallback */
     position: relative !important;
     overflow: hidden !important;
+    background-repeat: repeat-x !important;
+    /* TILED EFFECT */
+    background-size: contain !important;
+    background-position: center !important;
   }
 
   .modal-img-main {
@@ -3511,7 +3515,7 @@ footer {
     padding: 0 !important;
   }
 
-  .modal-info {
+  .modal-details {
     padding: 1rem 1.2rem !important;
     flex: 1 !important;
     display: flex !important;
@@ -3519,10 +3523,11 @@ footer {
     justify-content: space-between !important;
     /* Distribute space */
     overflow: hidden !important;
+    text-align: center !important;
   }
 
   /* 3. Typography - Readable but Compact */
-  .modal-info h2 {
+  .modal-details h2 {
     font-size: 0.95rem !important;
     /* Slightly smaller to fit single line */
     margin-bottom: 0.3rem !important;
@@ -3533,10 +3538,9 @@ footer {
     overflow: hidden !important;
     text-overflow: ellipsis !important;
     text-align: center !important;
-    /* Center the title too for balance */
   }
 
-  .modal-info>p {
+  .modal-details>p {
     font-size: 0.8rem !important;
     /* Slightly smaller for more room */
     line-height: 1.2 !important;
@@ -3548,7 +3552,6 @@ footer {
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-align: center !important;
-    /* Center desc for card look */
   }
 
   /* 4. Compact Ingredients - Grid Layout */
