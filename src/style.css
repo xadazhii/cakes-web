@@ -3528,8 +3528,8 @@ footer {
 
   /* 3. Typography - Readable but Compact */
   .modal-details h2 {
-    font-size: 0.95rem !important;
-    /* Slightly smaller to fit single line */
+    font-size: 0.85rem !important;
+    /* Reduced from 0.95rem to ensure 20 chars fit */
     margin-bottom: 0.3rem !important;
     line-height: 1.1 !important;
     color: var(--color-accent) !important;
@@ -3538,6 +3538,8 @@ footer {
     overflow: hidden !important;
     text-overflow: ellipsis !important;
     text-align: center !important;
+    display: block !important;
+    width: 100% !important;
   }
 
   .modal-details>p {
