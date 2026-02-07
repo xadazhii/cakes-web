@@ -2522,58 +2522,57 @@ footer {
 @media (max-width: 768px) {
 
   /* Header & Logo */
+  /* Minimal Header */
   .site-header {
-    height: auto;
-    padding: 0.8rem 1rem;
-    background-color: #fff;
-  }
-
-  /* HARD FIX: Force Mobile Menu Styles for <768px */
-  .nav-links {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100dvh;
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    z-index: 3500;
-    transform: translateX(100%);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    will-change: transform;
-    /* Performance hint */
-    transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.4s ease, visibility 0.4s;
-    border-left: 2px solid var(--color-accent);
-    padding: 2rem;
-  }
-
-  .nav-links.active {
-    transform: translateX(0);
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-  }
-
-  .mobile-menu-toggle {
-    display: flex;
-    z-index: 4000;
-  }
-
-  .site-header.scrolled {
+    height: 60px;
     padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    /* Subtle shadow */
   }
 
   .site-logo {
-    height: 60px;
+    height: 40px;
+    /* Smaller, cleaner logo */
   }
 
-  .logo-title {
-    font-size: 1.4rem;
+  .logo-text {
+    display: none;
+    /* Hide text for minimal look */
+  }
+
+  /* Compact Hero */
+  .hero-section {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 40px 1.5rem 2rem 1.5rem;
+    /* Reduced padding */
+    min-height: auto !important;
+    gap: 1.5rem;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem;
+    /* Smaller, more elegant heading */
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+    color: #666;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .hero-image img {
+    box-shadow: none;
+    /* Remove heavy shadow */
+    max-width: 80%;
+    margin: 0 auto;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
   }
 
   /* Disable reveal animations on mobile to prevent "stuck" feeling */
@@ -2624,16 +2623,18 @@ footer {
   }
 
   /* About Section */
+  /* Clean About Section */
   .about-container {
-    flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
   }
 
   .about-image img {
-    width: 280px;
-    height: 280px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border: 2px solid #fff;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    /* Circle image for modern feel */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border: 4px solid #fff;
   }
 
   .about-stats {
@@ -2662,9 +2663,18 @@ footer {
   }
 
   .portfolio-card {
-    min-width: 280px;
-    max-width: 280px;
-    height: 450px;
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
+    /* Fluid height */
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    /* Lighter shadow */
+  }
+
+  .portfolio-image {
+    height: 300px;
+    /* Fixed visually pleasing height */
   }
 
   .prev-btn,
