@@ -3095,6 +3095,14 @@ footer {
     max-width: 260px;
   }
 
+  .portfolio-card h3 {
+    font-size: 1.1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 5px;
+  }
+
   .about-stats {
     flex-direction: column;
     align-items: center;
