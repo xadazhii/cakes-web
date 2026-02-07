@@ -3168,29 +3168,38 @@ footer {
 }
 
 /* For smaller iPhones (X, 11, 12, 13, 14, 15 Pro & Standard) */
+/* For smaller iPhones (X, 11, 12, 13, 14, 15 Pro & Standard) */
 @media (max-width: 430px) {
   .modal-image {
-    height: 100px !important;
-    /* Tiny image forced */
+    height: 90px !important;
+    /* Extremely tiny image */
     margin-bottom: 0 !important;
   }
 
+  /* If screen is short (landscape or small phone), hide image to prioritize text */
+  @media (max-height: 600px) {
+    .modal-image {
+      display: none !important;
+    }
+  }
+
   .modal-content {
-    margin: 10px auto !important;
-    /* Less vertical margin */
-    width: 90% !important;
+    margin: 15px auto !important;
+    /* Center better with less margin */
+    width: 92% !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
   }
 
   .modal-info {
-    padding: 0.5rem !important;
+    padding: 0.4rem 0.8rem !important;
   }
 
   .modal-info h2 {
     font-size: 0.9rem !important;
-    margin-bottom: 0.1rem !important;
-    line-height: 1.1 !important;
+    margin-bottom: 0 !important;
+    line-height: 1.2 !important;
     white-space: nowrap !important;
-    /* Force one line */
     overflow: hidden !important;
     text-overflow: ellipsis !important;
   }
@@ -3198,7 +3207,7 @@ footer {
   .modal-info>p {
     font-size: 0.7rem !important;
     margin-bottom: 0.2rem !important;
-    line-height: 1.2 !important;
+    line-height: 1.1 !important;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -3207,25 +3216,28 @@ footer {
 
   .fillings-list {
     margin: 0.2rem 0 !important;
-    padding: 0.3rem 0.5rem !important;
+    padding: 0.3rem !important;
+    border-left-width: 2px !important;
   }
 
   .fillings-list h3 {
-    font-size: 0.7rem !important;
-    margin-bottom: 0.1rem !important;
+    font-size: 0.65rem !important;
+    margin-bottom: 0 !important;
+    font-weight: bold !important;
   }
 
   .fillings-list li {
     font-size: 0.65rem !important;
-    padding: 0.1rem 0 !important;
-    line-height: 1.2 !important;
+    padding: 0 !important;
+    line-height: 1.1 !important;
   }
 
   .order-btn {
-    padding: 0.4rem 1rem !important;
-    font-size: 0.8rem !important;
-    margin-top: 0.2rem !important;
+    padding: 0.35rem 1rem !important;
+    font-size: 0.75rem !important;
+    margin-top: 0.3rem !important;
     width: 100% !important;
+    min-height: 30px !important;
   }
 }
 
