@@ -2726,22 +2726,36 @@ footer {
     display: none !important;
   }
 
-  /* About Section */
+  /* About Section - Compact for One-Screen View */
   .about-container {
     flex-direction: column;
-    gap: 3rem;
+    gap: 1.5rem;
+    /* Reduced from 3rem */
   }
 
   .about-image img {
-    width: 280px;
-    height: 280px;
+    width: 150px;
+    /* Reduced from 280px */
+    height: 150px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border: 2px solid #fff;
+  }
+
+  .about-text h2 {
+    font-size: 2rem;
+    /* Slightly smaller heading */
+  }
+
+  .about-text p {
+    font-size: 0.95rem;
+    line-height: 1.6;
   }
 
   .about-stats {
     justify-content: center;
     gap: 1.5rem;
+    margin-top: 0.5rem;
+    /* Tighter spacing */
   }
 
   /* Shared Section Fixes */
