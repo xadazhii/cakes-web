@@ -3248,30 +3248,33 @@ footer {
 
   /* 3. Floating Close Button - FIXED POSITION (NUCLEAR OPTION) */
   /* 3. Floating Close Button - "NICE GREY" STYLE (Matches Pro Max) */
+  /* 3. Floating Close Button - "NICE GREY" STYLE (Matches Pro Max / Desktop) */
   .close-modal {
     position: fixed !important;
-    top: 80px !important;
+    top: 85px !important;
+    /* Adjusted slightly */
     right: 20px !important;
     z-index: 2147483647 !important;
 
-    /* Elegant "Grey" Design */
-    width: 32px !important;
-    /* Compact like on 14 Pro Max */
-    height: 32px !important;
+    /* Exact match to Global Design */
+    width: 40px !important;
+    /* Back to 40px (Standard size) */
+    height: 40px !important;
     background-color: #ffffff !important;
-    /* Pure white */
     color: #888888 !important;
-    /* Nice Grey Icon */
     border-radius: 50% !important;
     border: none !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    font-size: 20px !important;
-    font-weight: normal !important;
+    font-family: Arial, sans-serif !important;
+    /* Ensure clean sans-serif X */
+    font-size: 28px !important;
+    /* Larger, cleaner icon */
+    font-weight: 300 !important;
+    /* Light weight for elegance */
     cursor: pointer !important;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
-    /* Soft, elegant shadow */
     opacity: 1 !important;
     transition: transform 0.2s ease !important;
   }
