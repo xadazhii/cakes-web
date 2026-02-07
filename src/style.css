@@ -1740,26 +1740,44 @@ footer {
   }
 
   .modal-image img {
-    height: 220px;
-    /* Reduced from 250px+ for general mobile compactness */
+    height: 180px;
+    /* Even smaller per user request */
     min-height: auto;
     object-fit: cover;
   }
 
   .modal-info {
-    padding: 1.5rem !important;
-    /* Reduced from 2rem or 3rem */
+    padding: 1.2rem !important;
+    /* Tighter padding for cleaner look */
   }
 
   .modal-info h2 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     /* Smaller title */
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
+    line-height: 1.2;
+  }
+
+  .modal-info p {
+    font-size: 0.95rem;
+    /* Slightly smaller body text */
+    line-height: 1.4;
+    margin-bottom: 0.8rem;
   }
 
   .fillings-list {
-    margin: 1rem 0;
-    padding: 1rem;
+    margin: 0.8rem 0;
+    padding: 0.8rem;
+  }
+
+  .fillings-list h3 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .fillings-list li {
+    font-size: 0.9rem;
+    padding: 0.2rem 0;
   }
 }
 
