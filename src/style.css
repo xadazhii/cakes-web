@@ -3251,8 +3251,8 @@ footer {
   /* 3. Floating Close Button - "NICE GREY" STYLE (Matches Pro Max / Desktop) */
   .close-modal {
     position: fixed !important;
-    top: 85px !important;
-    /* Adjusted slightly */
+    top: 75px !important;
+    /* Raised higher per request */
     right: 20px !important;
     z-index: 2147483647 !important;
 
