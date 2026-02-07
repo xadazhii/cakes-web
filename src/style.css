@@ -1591,15 +1591,19 @@ nav {
 .modal-content {
   background-color: #fefefe;
   margin: auto;
+  /* Flex centering handles this mostly, but auto is safe */
   padding: 0;
   border-radius: 12px;
   width: 90%;
   max-width: 900px;
   position: relative;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  /* Desktop default behavior */
   overflow: hidden;
   max-height: 90vh;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .close-modal {
@@ -3441,6 +3445,167 @@ footer {
   transition-delay: 0.4s;
 }
 
-.delay-500 {
-  transition-delay: 0.5s;
+/* Mobile Modal Redesign - Centered No-Scroll Card */
+@media (max-width: 600px) {
+  .modal {
+    display: none;
+    /* Toggled to flex by JS */
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    z-index: 99999 !important;
+  }
+
+  .modal.show,
+  .modal.visible {
+    display: flex !important;
+  }
+
+  .modal-content {
+    margin: auto !important;
+    width: 88% !important;
+    max-width: 340px !important;
+    max-height: 80vh !important;
+    /* Cap height to ensure margins */
+    border-radius: 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+    /* NO SCROLL */
+    position: relative !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4) !important;
+    background: white !important;
+  }
+
+  /* 1. Image Section */
+  .modal-image {
+    height: 140px !important;
+    /* Slightly larger for visual balance */
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    margin-bottom: 0 !important;
+  }
+
+  .modal-image img {
+    height: 100% !important;
+    width: 100% !important;
+    object-fit: cover !important;
+  }
+
+  /* 2. Content Section - Flex Column */
+  .modal-body {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+    /* NO SCROLL */
+    padding: 0 !important;
+  }
+
+  .modal-images {
+    display: none !important;
+    /* Hide extra images container if present */
+  }
+
+  .modal-info {
+    padding: 1rem 1.2rem !important;
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    /* Distribute space */
+    overflow: hidden !important;
+  }
+
+  /* 3. Typography - Readable but Compact */
+  .modal-info h2 {
+    font-size: 1.1rem !important;
+    /* Readable Title */
+    margin-bottom: 0.3rem !important;
+    line-height: 1.1 !important;
+    color: var(--color-accent) !important;
+  }
+
+  .modal-info>p {
+    font-size: 0.85rem !important;
+    /* Readable Body */
+    line-height: 1.2 !important;
+    margin-bottom: 0.5rem !important;
+    color: #555 !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* Limit description lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* 4. Compact Ingredients - Grid Layout */
+  .fillings-list {
+    margin: 0.5rem 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    /* 2 Columns */
+    gap: 0.3rem 1rem !important;
+  }
+
+  .fillings-list h3 {
+    display: none !important;
+    /* Hide "Ingredients" label to save space */
+  }
+
+  .fillings-list li {
+    font-size: 0.75rem !important;
+    /* Readable List */
+    padding: 0 !important;
+    line-height: 1.2 !important;
+    list-style: none !important;
+    display: flex !important;
+    align-items: center !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .fillings-list li::before {
+    content: '•';
+    color: var(--color-accent);
+    margin-right: 4px;
+    font-size: 1rem;
+    line-height: 0.8;
+    flex-shrink: 0;
+  }
+
+  /* 5. Button */
+  .order-btn {
+    margin-top: auto !important;
+    /* Push to bottom */
+    padding: 0.75rem 0 !important;
+    font-size: 0.9rem !important;
+    width: 100% !important;
+    border-radius: 50px !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* 6. Close Button - Floating on Image */
+  .close-modal {
+    position: absolute !important;
+    top: 10px !important;
+    right: 10px !important;
+    background: white !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+    color: #333 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 20px !important;
+    z-index: 10 !important;
+    opacity: 0.9 !important;
+  }
 }
