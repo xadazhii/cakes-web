@@ -704,13 +704,19 @@ nav {
 
 .portfolio-slider {
   display: flex !important;
-  overflow-x: auto;
+  flex-wrap: nowrap !important;
+  /* Force single row */
+  justify-content: flex-start !important;
+  overflow-x: auto !important;
   scroll-behavior: smooth;
   gap: 2rem;
   padding: 2rem 1rem;
-  /* Space for shadows */
+  padding-right: 4rem !important;
+  /* Ensure last item is reachable */
   scrollbar-width: none;
   -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+  /* Momentum scrolling */
 }
 
 .portfolio-slider::-webkit-scrollbar {
@@ -730,6 +736,8 @@ nav {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   transition: all 0.4s ease;
   cursor: pointer;
+  flex: 0 0 auto !important;
+  /* Don't shrink */
 }
 
 .portfolio-card:hover {
@@ -1091,6 +1099,12 @@ nav {
     opacity: 1;
     /* Always visible on mobile */
     transform: translateY(0);
+  }
+
+  /* Hide scroll buttons on mobile, rely on swipe */
+  .prev-portfolio-btn,
+  .next-portfolio-btn {
+    display: none !important;
   }
 }
 
