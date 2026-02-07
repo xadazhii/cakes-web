@@ -3217,6 +3217,8 @@ footer {
     width: 95% !important;
     margin: 10px auto !important;
     max-height: 95vh !important;
+    padding-top: 30px !important;
+    /* Safe space for close button */
   }
 
   .modal-info {
@@ -3225,11 +3227,14 @@ footer {
 
   /* 2. Compact Typography (~14px target) */
   .modal-info h2 {
-    font-size: 1.4rem !important;
+    font-size: 1.2rem !important;
+    /* Reduced to fit one line */
     margin-bottom: 0.2rem !important;
     line-height: 1.2 !important;
-    white-space: normal !important;
-    /* Allow wrapping if needed, but keeping it tight */
+    white-space: nowrap !important;
+    /* Force one line */
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
   }
 
   .modal-info>p {
