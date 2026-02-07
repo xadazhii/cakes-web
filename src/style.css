@@ -3293,8 +3293,8 @@ footer {
 /* Targets screens that are narrow OR short, excluding Max/Plus models */
 /* Optimized for Standard/Pro iPhones (e.g. 12/13/14 Pro - 390px) */
 /* Targets screens that are narrow OR short, excluding Max/Plus models */
-@media (max-width: 400px),
-(max-height: 850px) {
+@media (max-width: 600px),
+(max-height: 900px) {
 
   /* 1. Aggressively Compact Image */
   .modal-image {
