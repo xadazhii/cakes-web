@@ -3204,9 +3204,7 @@ footer {
 /* Targets screens that are narrow OR short, excluding Max/Plus models */
 /* Optimized for Standard/Pro iPhones (e.g. 12/13/14 Pro - 390px) */
 /* Targets screens that are narrow OR short, excluding Max/Plus models */
-/* Optimized for ALL Mobile Devices (Standard, Pro, Max/Plus) */
-/* Increased width to 450px to cover iPhone 12/13/14/15 Pro Max & Plus models */
-@media (max-width: 450px),
+@media (max-width: 400px),
 (max-height: 850px) {
 
   /* 1. Aggressively Compact Image */
@@ -3244,31 +3242,31 @@ footer {
   /* 3. Floating Close Button - FORCED VISIBILITY & POSITION */
 
   /* 3. Floating Close Button - FIXED POSITION (NUCLEAR OPTION) */
-  /* 3. Floating Close Button - REFINED POSITION */
+  /* 3. Floating Close Button - "NICE GREY" STYLE (Matches Pro Max) */
   .close-modal {
     position: fixed !important;
     top: 80px !important;
-    /* Slightly higher */
     right: 20px !important;
     z-index: 2147483647 !important;
 
-    /* Elegant Button Design */
-    width: 35px !important;
-    /* Smaller, more elegant */
-    height: 35px !important;
-    background-color: rgba(255, 255, 255, 0.95) !important;
-    color: #333 !important;
+    /* Elegant "Grey" Design */
+    width: 32px !important;
+    /* Compact like on 14 Pro Max */
+    height: 32px !important;
+    background-color: #ffffff !important;
+    /* Pure white */
+    color: #888888 !important;
+    /* Nice Grey Icon */
     border-radius: 50% !important;
     border: none !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    font-size: 22px !important;
-    /* Adjusted icon size */
+    font-size: 20px !important;
     font-weight: normal !important;
     cursor: pointer !important;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
-    /* Softer shadow */
+    /* Soft, elegant shadow */
     opacity: 1 !important;
     transition: transform 0.2s ease !important;
   }
