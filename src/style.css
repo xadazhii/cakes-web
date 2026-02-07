@@ -2539,6 +2539,31 @@ footer {
 
 @media (max-width: 768px) {
 
+  /* Enhanced Mobile Lang Switcher */
+  .lang-switcher {
+    margin-top: 2rem;
+    padding: 0.8rem 2rem;
+    background: #fff;
+    border-radius: 50px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .lang-switcher .lang-btn {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    padding: 0 0.5rem;
+    font-weight: bold;
+  }
+
+  .lang-switcher .lang-divider {
+    color: var(--color-accent);
+    opacity: 0.5;
+  }
+
   /* Header & Logo */
   .site-header {
     height: auto;
@@ -2547,17 +2572,20 @@ footer {
   }
 
   /* HARD FIX: Force Mobile Menu Styles for <768px */
+  /* HARD FIX: Force Mobile Menu Styles for <768px */
   .nav-links {
     position: fixed;
     inset: 0;
     width: 100%;
     height: 100dvh;
-    background: #fff;
+    /* Premium Gradient Background */
+    background: radial-gradient(circle at 100% 0%, rgba(253, 185, 49, 0.08) 0%, #fff 60%);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 2.5rem;
+    /* Increased gap for elegance */
     z-index: 3500;
     transform: translateX(100%);
     opacity: 0;
@@ -2565,9 +2593,36 @@ footer {
     pointer-events: none;
     will-change: transform;
     /* Performance hint */
-    transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.4s ease, visibility 0.4s;
-    border-left: 2px solid var(--color-accent);
+    transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.4s ease, visibility 0.4s;
+    border-left: none;
+    /* Removed harsh border */
     padding: 2rem;
+  }
+
+  /* Mobile Menu Links */
+  .nav-links a {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: #333;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease;
+    display: block;
+  }
+
+  .nav-links a.active,
+  .nav-links a:active {
+    color: var(--color-accent);
+    transform: translateX(5px);
+  }
+
+  /* List Items */
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+    border-bottom: none;
+    /* Clean look, no dividers */
+    max-width: 100%;
   }
 
   .nav-links.active {
