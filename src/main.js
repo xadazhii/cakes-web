@@ -587,32 +587,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
         return new Promise((resolve) => {
             const img = new Image();
-            img.crossOrigin = "Anonymous";
+            // Removed crossOrigin to avoid CORS issues
+
             img.onload = () => {
-                const canvas = document.createElement('canvas');
-                // Width = 2x image width (Normal + Mirrored)
-                const w = img.naturalWidth;
-                const h = img.naturalHeight;
-                canvas.width = w * 2;
-                canvas.height = h;
+                try {
+                    const canvas = document.createElement('canvas');
+                    // Width = 2x image width (Normal + Mirrored)
+                    const w = img.naturalWidth;
+                    const h = img.naturalHeight;
+                    canvas.width = w * 2;
+                    canvas.height = h;
 
-                const ctx = canvas.getContext('2d');
+                    const ctx = canvas.getContext('2d');
 
-                // 1. Draw Normal Image (Left)
-                ctx.drawImage(img, 0, 0);
+                    // 1. Draw Normal Image (Left)
+                    ctx.drawImage(img, 0, 0);
 
-                // 2. Draw Mirrored Image (Right)
-                ctx.save();
-                ctx.translate(w * 2, 0); // Move origin to far right
-                ctx.scale(-1, 1);        // Flip coordinate system
-                ctx.drawImage(img, 0, 0); // Draw into the flipped space (occupies w to 2w)
-                ctx.restore();
+                    // 2. Draw Mirrored Image (Right)
+                    ctx.save();
+                    ctx.translate(w * 2, 0); // Move origin to far right
+                    ctx.scale(-1, 1);        // Flip coordinate system
+                    ctx.drawImage(img, 0, 0); // Draw into the flipped space (occupies w to 2w)
+                    ctx.restore();
 
-                const dataUrl = canvas.toDataURL('image/jpeg', 0.8); // Optimization: jpeg quality 0.8
-                seamlessPatternCache[src] = dataUrl;
-                resolve(dataUrl);
+                    const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
+                    seamlessPatternCache[src] = dataUrl;
+                    console.log('Seamless pattern generated successfully:', src);
+                    resolve(dataUrl);
+                } catch (e) {
+                    console.error('Seamless generation failed (Canvas/CORS):', e);
+                    resolve(src); // Fallback
+                }
             };
-            img.onerror = () => resolve(src); // Fallback to original
+            img.onerror = (err) => {
+                console.error('Seamless image load failed:', err);
+                resolve(src);
+            };
             img.src = src;
         });
     }
