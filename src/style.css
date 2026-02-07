@@ -3528,8 +3528,8 @@ footer {
 
   /* 3. Typography - Readable but Compact */
   .modal-details h2 {
-    font-size: 0.85rem !important;
-    /* Reduced from 0.95rem to ensure 20 chars fit */
+    font-size: 0.94rem !important;
+    /* Increased by ~10% from 0.85rem */
     margin-bottom: 0.3rem !important;
     line-height: 1.1 !important;
     color: var(--color-accent) !important;
@@ -3543,8 +3543,8 @@ footer {
   }
 
   .modal-details>p {
-    font-size: 0.8rem !important;
-    /* Slightly smaller for more room */
+    font-size: 0.72rem !important;
+    /* Decreased by ~10% from 0.8rem */
     line-height: 1.2 !important;
     margin-bottom: 0.5rem !important;
     color: #555 !important;
