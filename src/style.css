@@ -3105,9 +3105,10 @@ footer {
     max-width: 200px;
   }
 
-  /* Cake Modal - Super Compact */
+  /* Cake Modal - ULTRA COMPACT (Aggressive Fit) */
   .modal-image {
-    height: 100px;
+    height: 120px;
+    margin-bottom: 0;
   }
 
   .modal-info {
@@ -3116,41 +3117,44 @@ footer {
 
   .modal-info h2 {
     font-size: 1rem;
+    /* Drastically reduced */
     color: var(--color-accent);
-    margin-bottom: 0.15rem;
-    white-space: nowrap;
+    margin-bottom: 0.2rem;
+    line-height: 1.2;
   }
 
   .modal-info>p {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     font-style: italic;
     color: #666;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
   }
 
   .fillings-list {
     margin: 0.3rem 0;
-    padding: 0.4rem 0.5rem;
-    border-radius: 5px;
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
     border-left: 2px solid var(--color-accent);
     background: rgba(255, 250, 240, 0.8);
   }
 
   .fillings-list h3 {
-    font-size: 0.65rem;
-    margin-bottom: 0.15rem;
+    font-size: 0.7rem;
+    margin-bottom: 0.2rem;
+    font-weight: bold;
   }
 
   .fillings-list li {
-    font-size: 0.65rem;
-    padding: 0.05rem 0;
-    line-height: 1.15;
+    font-size: 0.7rem;
+    padding: 0.1rem 0;
+    line-height: 1.2;
   }
 
   .order-btn {
-    padding: 0.4rem 1rem;
-    font-size: 0.8rem;
-    border-radius: 15px;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.85rem;
+    border-radius: 18px;
     margin-top: 0.3rem;
   }
 }
