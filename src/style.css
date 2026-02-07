@@ -2874,17 +2874,34 @@ footer {
     display: none !important;
   }
 
-  /* Recipes */
+  /* Recipes - Compact Mobile Layout */
   .recipe-card {
     flex-direction: column;
+    max-width: 100%;
   }
 
   .recipe-image {
-    min-height: 250px;
+    min-height: 180px;
+    /* Reduced from 250px */
+    max-height: 200px;
   }
 
   .recipe-content {
-    padding: 1.5rem;
+    padding: 1rem;
+  }
+
+  .recipe-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .recipe-content p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .recipes-grid {
+    gap: 1.5rem;
   }
 
   /* Modals */
