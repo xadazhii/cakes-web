@@ -867,26 +867,31 @@ nav {
   right: 20px;
   width: 40px;
   height: 40px;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: #ffffff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #333;
+  color: #888888;
+  /* The nice grey */
   font-size: 24px;
-  font-weight: 300;
+  font-weight: normal;
   border: none;
   cursor: pointer;
   z-index: 100;
   /* Ensure it's above image and text */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  /* Slightly softer shadow */
   transition: all 0.3s ease;
 }
 
 .close-modal:hover {
-  background-color: var(--color-accent);
-  color: white;
-  transform: rotate(90deg);
+  background-color: #f8f8f8;
+  /* Subtle hover effect */
+  color: #555555;
+  /* Darker grey on hover */
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
 .modal-body {
