@@ -2573,36 +2573,59 @@ footer {
   }
 
   /* HARD FIX: Force Mobile Menu Styles for <768px */
-  /* HARD FIX: Force Mobile Menu Styles for <768px */
   .nav-links {
     position: fixed;
     inset: 0;
     width: 100%;
     height: 100dvh;
-    width: 100%;
-    height: 100dvh;
-    /* Premium Decorative Background using Radial Gradients */
+    /* Bold Premium Background with Decorative Elements */
     background:
-      radial-gradient(circle at 100% 100%, rgba(253, 185, 49, 0.08) 0%, transparent 50%),
-      radial-gradient(circle at 0% 0%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
-      #ffffff;
+      /* Large decorative gold circle bottom-right */
+      radial-gradient(circle at 120% 120%, rgba(212, 175, 55, 0.25) 0%, transparent 50%),
+      /* Medium gold orb top-left */
+      radial-gradient(circle at -20% -10%, rgba(253, 185, 49, 0.2) 0%, transparent 35%),
+      /* Subtle center glow */
+      radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 1) 0%, rgba(255, 250, 240, 0.8) 100%),
+      /* Base warm cream */
+      linear-gradient(180deg, #fffcf5 0%, #fff8eb 100%);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2.5rem;
-    /* Increased gap for elegance */
+    gap: 2rem;
     z-index: 3500;
     transform: translateX(100%);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
     will-change: transform;
-    /* Performance hint */
     transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.4s ease, visibility 0.4s;
     border-left: none;
-    /* Removed harsh border */
     padding: 2rem;
+  }
+
+  /* Add decorative top accent line */
+  .nav-links::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+    border-radius: 2px;
+    margin-top: 60px;
+  }
+
+  /* Add decorative bottom accent */
+  .nav-links::after {
+    content: '🎂';
+    position: absolute;
+    bottom: 100px;
+    right: 30px;
+    font-size: 3rem;
+    opacity: 0.15;
   }
 
   /* Mobile Menu Links - Enhanced */
