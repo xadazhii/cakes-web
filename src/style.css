@@ -3159,21 +3159,38 @@ footer {
   }
 }
 
-/* For smaller iPhones (X, 11 Pro, 12, 13) */
-@media (max-width: 390px) {
+/* For smaller iPhones (X, 11, 12, 13, 14, 15 Pro & Standard) */
+@media (max-width: 430px) {
   .modal-image {
-    height: 100px;
-    /* Tiny image */
+    height: 100px !important;
+    /* Tiny image forced */
+    margin-bottom: 0 !important;
+  }
+
+  .modal-content {
+    margin: 10px auto !important;
+    /* Less vertical margin */
+    width: 90% !important;
+  }
+
+  .modal-info {
+    padding: 0.5rem !important;
   }
 
   .modal-info h2 {
-    font-size: 0.9rem;
-    margin-bottom: 0.1rem;
+    font-size: 0.9rem !important;
+    margin-bottom: 0.1rem !important;
+    line-height: 1.1 !important;
+    white-space: nowrap !important;
+    /* Force one line */
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
   }
 
   .modal-info>p {
-    font-size: 0.7rem;
-    margin-bottom: 0.3rem;
+    font-size: 0.7rem !important;
+    margin-bottom: 0.2rem !important;
+    line-height: 1.2 !important;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -3181,18 +3198,26 @@ footer {
   }
 
   .fillings-list {
-    margin: 0.2rem 0;
-    padding: 0.3rem 0.5rem;
+    margin: 0.2rem 0 !important;
+    padding: 0.3rem 0.5rem !important;
+  }
+
+  .fillings-list h3 {
+    font-size: 0.7rem !important;
+    margin-bottom: 0.1rem !important;
   }
 
   .fillings-list li {
-    font-size: 0.65rem;
+    font-size: 0.65rem !important;
+    padding: 0.1rem 0 !important;
+    line-height: 1.2 !important;
   }
 
   .order-btn {
-    padding: 0.4rem 1rem;
-    font-size: 0.8rem;
-    margin-top: 0.2rem;
+    padding: 0.4rem 1rem !important;
+    font-size: 0.8rem !important;
+    margin-top: 0.2rem !important;
+    width: 100% !important;
   }
 }
 
