@@ -3105,52 +3105,53 @@ footer {
     max-width: 200px;
   }
 
-  /* Cake Modal - Ultra Compact */
+  /* Cake Modal - Super Compact */
   .modal-image {
-    height: 120px;
+    height: 100px;
   }
 
   .modal-info {
-    padding: 0.6rem 1rem;
+    padding: 0.5rem 0.8rem;
   }
 
   .modal-info h2 {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--color-accent);
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.15rem;
+    white-space: nowrap;
   }
 
   .modal-info>p {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-style: italic;
     color: #666;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.3rem;
   }
 
   .fillings-list {
-    margin: 0.4rem 0;
-    padding: 0.5rem 0.6rem;
-    border-radius: 6px;
+    margin: 0.3rem 0;
+    padding: 0.4rem 0.5rem;
+    border-radius: 5px;
     border-left: 2px solid var(--color-accent);
     background: rgba(255, 250, 240, 0.8);
   }
 
   .fillings-list h3 {
-    font-size: 0.7rem;
-    margin-bottom: 0.2rem;
+    font-size: 0.65rem;
+    margin-bottom: 0.15rem;
   }
 
   .fillings-list li {
-    font-size: 0.7rem;
-    padding: 0.1rem 0;
-    line-height: 1.2;
+    font-size: 0.65rem;
+    padding: 0.05rem 0;
+    line-height: 1.15;
   }
 
   .order-btn {
-    padding: 0.5rem 1.2rem;
-    font-size: 0.85rem;
-    border-radius: 18px;
-    margin-top: 0.4rem;
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+    border-radius: 15px;
+    margin-top: 0.3rem;
   }
 }
 
