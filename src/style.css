@@ -3200,77 +3200,74 @@ footer {
   }
 }
 
-/* For smaller iPhones (X, 11, 12, 13, 14, 15 Pro & Standard) */
-/* For smaller iPhones (X, 11, 12, 13, 14, 15 Pro & Standard) */
-@media (max-width: 430px) {
-  .modal-image {
-    height: 90px !important;
-    /* Extremely tiny image */
-    margin-bottom: 0 !important;
-  }
+/* Optimized for Standard/Pro iPhones (e.g. 12/13/14 Pro - 390px) */
+/* Targets screens that are narrow OR short, excluding Max/Plus models */
+@media (max-width: 400px),
+(max-height: 850px) {
 
-  /* If screen is short (landscape or small phone), hide image to prioritize text */
-  @media (max-height: 600px) {
-    .modal-image {
-      display: none !important;
-    }
+  /* 1. Moderate Image Height (User requested ~160-200px) */
+  .modal-image {
+    height: 180px !important;
+    margin-bottom: 0 !important;
+    display: block !important;
+    /* Ensure it's shown */
   }
 
   .modal-content {
-    margin: 15px auto !important;
-    /* Center better with less margin */
-    width: 92% !important;
-    max-height: 90vh !important;
-    overflow-y: auto !important;
+    width: 95% !important;
+    margin: 10px auto !important;
+    max-height: 95vh !important;
   }
 
   .modal-info {
-    padding: 0.4rem 0.8rem !important;
+    padding: 0.8rem 1rem !important;
   }
 
+  /* 2. Compact Typography (~14px target) */
   .modal-info h2 {
-    font-size: 0.9rem !important;
-    margin-bottom: 0 !important;
+    font-size: 1.4rem !important;
+    margin-bottom: 0.2rem !important;
     line-height: 1.2 !important;
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
+    white-space: normal !important;
+    /* Allow wrapping if needed, but keeping it tight */
   }
 
   .modal-info>p {
-    font-size: 0.7rem !important;
-    margin-bottom: 0.2rem !important;
-    line-height: 1.1 !important;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    font-size: 0.9rem !important;
+    /* ~14.4px */
+    line-height: 1.35 !important;
+    margin-bottom: 0.5rem !important;
+    -webkit-line-clamp: 3;
+    /* Allow a bit more text than before */
   }
 
+  /* 3. Tighter List Spacing */
   .fillings-list {
-    margin: 0.2rem 0 !important;
-    padding: 0.3rem !important;
-    border-left-width: 2px !important;
+    margin: 0.5rem 0 !important;
+    padding: 0.5rem 0.8rem !important;
+    border-left-width: 3px !important;
   }
 
   .fillings-list h3 {
-    font-size: 0.65rem !important;
-    margin-bottom: 0 !important;
-    font-weight: bold !important;
+    font-size: 0.9rem !important;
+    margin-bottom: 0.3rem !important;
+    font-weight: 600 !important;
   }
 
   .fillings-list li {
-    font-size: 0.65rem !important;
-    padding: 0 !important;
-    line-height: 1.1 !important;
+    font-size: 0.85rem !important;
+    /* ~13.6px */
+    padding: 0.15rem 0 !important;
+    line-height: 1.3 !important;
   }
 
+  /* 4. Button Visibility */
   .order-btn {
-    padding: 0.35rem 1rem !important;
-    font-size: 0.75rem !important;
-    margin-top: 0.3rem !important;
+    margin-top: 0.5rem !important;
+    padding: 0.7rem 0 !important;
+    font-size: 1rem !important;
     width: 100% !important;
-    min-height: 30px !important;
+    border-radius: 30px !important;
   }
 }
 
