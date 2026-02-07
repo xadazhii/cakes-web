@@ -1766,17 +1766,17 @@ footer {
   }
 
   .modal-info h2 {
-    font-size: 1.4rem;
-    /* Smaller title */
-    margin-bottom: 0.3rem;
+    font-size: 1.1rem;
+    /* Significantly smaller title */
+    margin-bottom: 0.2rem;
     line-height: 1.2;
   }
 
   .modal-info p {
-    font-size: 0.95rem;
-    /* Slightly smaller body text */
-    line-height: 1.4;
-    margin-bottom: 0.8rem;
+    font-size: 0.85rem;
+    /* Smaller body text */
+    line-height: 1.3;
+    margin-bottom: 0.6rem;
   }
 
   .fillings-list {
@@ -3341,20 +3341,18 @@ footer {
 
   /* 5. Typography Fix: Allow wrap but minimal size */
   .modal-info h2 {
-    font-size: 1.1rem !important;
-    /* ~18px */
+    font-size: 0.95rem !important;
+    /* Tiny title for small screens */
     margin-bottom: 0.2rem !important;
-    /* 5-8px */
     line-height: 1.1 !important;
     white-space: normal !important;
-    /* Allow wrapping */
   }
 
   .modal-info>p {
-    font-size: 0.85rem !important;
-    line-height: 1.3 !important;
-    margin-bottom: 0.5rem !important;
-    /* ~10px */
+    font-size: 0.75rem !important;
+    /* Tiny description */
+    line-height: 1.25 !important;
+    margin-bottom: 0.4rem !important;
     -webkit-line-clamp: 3;
   }
 
