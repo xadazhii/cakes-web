@@ -3478,22 +3478,6 @@ footer {
   }
 
   /* 1. Image Section */
-  .modal-image {
-    display: block !important;
-    height: 180px !important;
-    /* Increased from 120px to show more detail */
-    min-height: 180px !important;
-    flex: 0 0 auto !important;
-    width: 100% !important;
-    object-fit: contain !important;
-    /* SHOW FULL PHOTO - NO CROP */
-    background-color: #f9f9f9 !important;
-    /* Light background for 'contain' fit */
-    margin-bottom: 0 !important;
-    position: relative !important;
-    border-radius: 0 !important;
-  }
-
   .modal-images {
     display: block !important;
     height: 180px !important;
@@ -3502,14 +3486,19 @@ footer {
     margin: 0 !important;
     padding: 0 !important;
     background-color: #f9f9f9 !important;
+    /* Fallback for 'contain' fit */
+    position: relative !important;
+    overflow: hidden !important;
   }
 
-  .modal-image img {
+  .modal-img-main {
     height: 100% !important;
     width: 100% !important;
     object-fit: contain !important;
-    /* SHOW FULL PHOTO - NO CROP */
+    /* FULL PHOTO - NO CROP */
     display: block !important;
+    transform: none !important;
+    /* Disable deskop hover/zoom effects */
   }
 
   /* 2. Content Section - Flex Column */
@@ -3520,11 +3509,6 @@ footer {
     overflow: hidden !important;
     /* NO SCROLL */
     padding: 0 !important;
-  }
-
-  .modal-images {
-    display: block !important;
-    /* Re-enable container if it wraps image */
   }
 
   .modal-info {
