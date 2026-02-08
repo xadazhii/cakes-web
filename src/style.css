@@ -56,10 +56,6 @@
   100% {
     transform: scale(1.2) translate(0, 0);
   }
-
-  100% {
-    transform: scale(1.2) translate(0, 0);
-  }
 }
 
 @keyframes floatHero {
@@ -3369,6 +3365,10 @@ footer {
     line-height: 1.1 !important;
     margin-bottom: 0.2rem !important;
     -webkit-line-clamp: 3;
+    line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   /* 6. Ultra-Compact Ingredients List */
@@ -3519,6 +3519,7 @@ footer {
     color: #555 !important;
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     /* Limit description lines */
     -webkit-box-orient: vertical;
     overflow: hidden;
