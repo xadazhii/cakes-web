@@ -1,4 +1,5 @@
-import './style.css'
+console.log('App version: ' + new Date().toISOString());
+import './style.css';
 import './contacts.css'
 
 // Translation Data
