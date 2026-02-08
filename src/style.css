@@ -1162,6 +1162,15 @@ nav {
 }
 
 @media (max-width: 768px) {
+  .portfolio-btn {
+    max-height: 60px !important;
+    opacity: 1 !important;
+    padding: 0.6rem 1.5rem !important;
+    margin-top: 0.8rem !important;
+    font-size: 0.8rem !important;
+    pointer-events: auto !important;
+  }
+
   .portfolio-slider-wrapper {
     padding: 0;
   }
