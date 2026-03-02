@@ -36,6 +36,10 @@ const translations = {
         cake12_desc: "Насичений шоколадний смак з фундуком та ніжним мусом.",
         cake13_title: "Молочна дівчинка",
         cake13_desc: "Ніжні ванільні коржі з легким йогуртовим кремом та ягодами.",
+        cake14_title: "Фісташка Манго",
+        cake14_desc: "Тропічне поєднання манго та маракуї з насиченою фісташкою.",
+        cake15_title: "Рафаелло",
+        cake15_desc: "Вишуканий кокосовий смак з хрустким мигдальним проліне.",
         nav_recipes: "Техкартки",
         nav_sweets: "Інші десерти",
         nav_reviews: "Відгуки",
@@ -130,6 +134,10 @@ const translations = {
         cake12_desc: "Intenzivní čokoládová chuť s lískovými oříšky a jemnou pěnou.",
         cake13_title: "Mléčná holka",
         cake13_desc: "Jemné vanilkové pláty s lehkým jogurtovým krémem a lesním ovocem.",
+        cake14_title: "Pistácie Mango",
+        cake14_desc: "Tropická kombinace manga a maracuji s výraznou pistácií.",
+        cake15_title: "Raffaello",
+        cake15_desc: "Gurmánská kokosová chuť s křupavým mandlovým praliné.",
         nav_recipes: "Recepty",
         nav_sweets: "Další dezerty",
         nav_reviews: "Recenze",
@@ -391,6 +399,36 @@ const cakes = [
         },
         image: "/images/c13.png",
         crossSection: "/images/c13.png"
+    },
+    {
+        id: 14,
+        uk: {
+            title: "Фісташка Манго",
+            description: "Тропічне поєднання манго та маракуї з насиченою фісташкою.",
+            fillings: ["Фісташковий бісквіт", "Фісташковий крем", "Компоте манго-маракуя", "Кусочки манго", "Запечений манговий чізкейк"]
+        },
+        cs: {
+            title: "Pistácie Mango",
+            description: "Tropická kombinace manga a maracuji s výraznou pistácií.",
+            fillings: ["Pistáciový korpus", "Pistáciový krém", "Mango-maracuja konfit", "Kousky manga", "Pečený mangový cheesecake"]
+        },
+        image: "/images/c14.png",
+        crossSection: "/images/c14.png"
+    },
+    {
+        id: 15,
+        uk: {
+            title: "Рафаелло",
+            description: "Вишуканий кокосовий смак з хрустким мигдальним проліне.",
+            fillings: ["Меренговий бісквіт", "Кокосовий запечений чізкейк", "Кокосовий крем-чіз", "Мигдальне проліне"]
+        },
+        cs: {
+            title: "Raffaello",
+            description: "Gurmánská kokosová chuť s křupavým mandlovým praliné.",
+            fillings: ["Meringuový piškot", "Kokosový pečený cheesecake", "Kokosový krém", "Mandlové praliné"]
+        },
+        image: "/images/c15.png",
+        crossSection: "/images/c15.png"
     }
 ];
 
@@ -574,18 +612,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextPortfolioBtn = document.querySelector('.next-portfolio-btn');
 
     if (portfolioSlider && prevPortfolioBtn && nextPortfolioBtn) {
-        const scrollAmount = 340; // Card width + gap
+        const getScrollAmount = () => {
+            // Use the first card's full width (including margin) for snapping
+            const firstCard = portfolioSlider.querySelector('.portfolio-card');
+            if (firstCard) {
+                const style = window.getComputedStyle(firstCard);
+                const marginLeft = parseFloat(style.marginLeft) || 0;
+                const marginRight = parseFloat(style.marginRight) || 0;
+                return firstCard.offsetWidth + marginLeft + marginRight;
+            }
+            return 340;
+        };
 
         prevPortfolioBtn.addEventListener('click', () => {
             portfolioSlider.scrollBy({
-                left: -scrollAmount,
+                left: -getScrollAmount(),
                 behavior: 'smooth'
             });
         });
 
         nextPortfolioBtn.addEventListener('click', () => {
             portfolioSlider.scrollBy({
-                left: scrollAmount,
+                left: getScrollAmount(),
                 behavior: 'smooth'
             });
         });
