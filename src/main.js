@@ -529,21 +529,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
 
     if (menuToggle && navLinks) {
+        const openMenu = () => {
+            menuToggle.classList.add('active');
+            navLinks.classList.add('active');
+            document.body.classList.add('menu-active');
+            document.documentElement.classList.add('menu-active');
+        };
+
+        const closeMenu = () => {
+            menuToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+            document.body.classList.remove('menu-active');
+            document.documentElement.classList.remove('menu-active');
+        };
+
         menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            navLinks.classList.toggle('active');
             if (navLinks.classList.contains('active')) {
-                document.body.classList.add('menu-active');
+                closeMenu();
             } else {
-                document.body.classList.remove('menu-active');
+                openMenu();
             }
         });
 
         navItems.forEach(item => {
             item.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-                document.body.classList.remove('menu-active');
+                closeMenu();
             });
         });
     }
@@ -589,18 +599,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = document.querySelector('.next-btn');
 
     if (sliderContainer && prevBtn && nextBtn) {
-        const scrollAmount = 400; // Adjust scroll step as needed
+        const getReviewScrollAmount = () => {
+            const firstCard = sliderContainer.querySelector('.review-card');
+            if (firstCard) {
+                const style = window.getComputedStyle(firstCard);
+                const marginLeft = parseFloat(style.marginLeft) || 0;
+                const marginRight = parseFloat(style.marginRight) || 0;
+                return firstCard.offsetWidth + marginLeft + marginRight;
+            }
+            return 400;
+        };
 
         prevBtn.addEventListener('click', () => {
             sliderContainer.scrollBy({
-                left: -scrollAmount,
+                left: -getReviewScrollAmount(),
                 behavior: 'smooth'
             });
         });
 
         nextBtn.addEventListener('click', () => {
             sliderContainer.scrollBy({
-                left: scrollAmount,
+                left: getReviewScrollAmount(),
                 behavior: 'smooth'
             });
         });
