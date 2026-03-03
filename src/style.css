@@ -2867,7 +2867,10 @@ footer {
   .site-header {
     height: auto;
     padding: 0.8rem 1rem;
-    background-color: #fff;
+    background-color: var(--color-bg);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+    z-index: 3100;
+    /* Ensure it stays above other mobile components */
   }
 
   /* HARD FIX: Force Mobile Menu Styles for <768px */
