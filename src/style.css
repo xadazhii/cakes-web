@@ -2946,29 +2946,38 @@ footer {
 
 
 
-  /* Responsive Logo Container */
-  .mobile-menu-footer {
+  /* Responsive Bottom Grouping */
+  .mobile-menu-bottom-area {
+    margin-top: auto;
+    /* Pushes everything to the bottom */
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: auto;
-    /* Pushes the logo down to the bottom area automatically */
-    margin-bottom: 1.5rem;
     width: 100%;
-    opacity: 0.9;
+    max-width: 280px;
+    padding-bottom: 1rem;
+    position: relative;
   }
 
-  /* Dynamically scaling logo based on phone dimensions */
+  .mobile-menu-footer {
+    display: flex;
+    justify-content: flex-end;
+    /* Align logo to the right */
+    width: 100%;
+    padding-right: 2.5rem;
+    /* Positioning above CZ button */
+    margin-bottom: -15px;
+    /* Visual overlap for harmony */
+    opacity: 1;
+    z-index: 5;
+  }
+
+  /* Compact responsive logo */
   .mobile-menu-icon {
-    width: auto;
-    max-width: 50vw;
-    /* Shrinks horizontally on narrow phones */
+    width: 85px;
+    /* Slightly smaller as requested */
     height: auto;
-    max-height: 18vh;
-    /* Shrinks vertically on short phones */
-    min-height: 80px;
     object-fit: contain;
-    margin-bottom: 0;
   }
 
   /* The image already contains the text in the transparent version, so we hide the raw text */
