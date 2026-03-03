@@ -640,7 +640,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const updateReviewButtons = () => {
-            const scrollLeft = sliderContainer.scrollLeft;
+            const scrollLeft = Math.ceil(sliderContainer.scrollLeft);
             const maxScroll = sliderContainer.scrollWidth - sliderContainer.clientWidth;
 
             // Subtle opacity change or logic can be added here if needed, 
@@ -648,7 +648,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (scrollLeft <= 5) prevBtn.style.opacity = '0.3';
             else prevBtn.style.opacity = '1';
 
-            if (scrollLeft >= maxScroll - 5) nextBtn.style.opacity = '0.3';
+            if (scrollLeft >= maxScroll - 30) nextBtn.style.opacity = '0.3';
             else nextBtn.style.opacity = '1';
         };
 
@@ -664,8 +664,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         nextBtn.addEventListener('click', () => {
+            const scrollLeft = Math.ceil(sliderContainer.scrollLeft);
             const maxScroll = sliderContainer.scrollWidth - sliderContainer.clientWidth;
-            if (sliderContainer.scrollLeft >= maxScroll - 5) return;
+            if (scrollLeft >= maxScroll - 30) return;
             sliderContainer.scrollBy({
                 left: getReviewScrollAmount(),
                 behavior: 'smooth'
@@ -694,13 +695,14 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const updatePortfolioButtons = () => {
-            const scrollLeft = portfolioSlider.scrollLeft;
+            const scrollLeft = Math.ceil(portfolioSlider.scrollLeft);
             const maxScroll = portfolioSlider.scrollWidth - portfolioSlider.clientWidth;
 
             if (scrollLeft <= 5) prevPortfolioBtn.style.opacity = '0.3';
             else prevPortfolioBtn.style.opacity = '1';
 
-            if (scrollLeft >= maxScroll - 5) nextPortfolioBtn.style.opacity = '0.3';
+            // Widen boundary to account for Safari padding/subpixel rendering
+            if (scrollLeft >= maxScroll - 30) nextPortfolioBtn.style.opacity = '0.3';
             else nextPortfolioBtn.style.opacity = '1';
         };
 
@@ -716,8 +718,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         nextPortfolioBtn.addEventListener('click', () => {
+            const scrollLeft = Math.ceil(portfolioSlider.scrollLeft);
             const maxScroll = portfolioSlider.scrollWidth - portfolioSlider.clientWidth;
-            if (portfolioSlider.scrollLeft >= maxScroll - 5) return;
+
+            if (scrollLeft >= maxScroll - 30) return;
             portfolioSlider.scrollBy({
                 left: getScrollAmount(),
                 behavior: 'smooth'
