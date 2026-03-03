@@ -591,19 +591,36 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Intersection Observer
-    const observerOptions = { threshold: 0.15 };
-    const sectionObserver = new IntersectionObserver((entries) => {
+    // Intersection Observer for Reveal Animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                entry.target.classList.add('active');
                 entry.target.classList.add('is-visible');
+                // Once animated, no need to observe anymore
+                revealObserver.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    document.querySelectorAll('section, .hero-section').forEach(section => {
-        sectionObserver.observe(section);
+    // Observe sections and all reveal elements
+    document.querySelectorAll('section, .hero-section, [class*="reveal-"]').forEach(el => {
+        revealObserver.observe(el);
     });
+
+    // Side Decoration Parallax
+    const sideDecoration = document.querySelector('.side-decoration');
+    if (sideDecoration) {
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            sideDecoration.style.transform = `translateY(${scrolled * 0.15}px)`;
+        }, { passive: true });
+    }
 
     // Reviews Slider Logic
     const sliderContainer = document.getElementById('reviewsSlider');
@@ -752,67 +769,10 @@ document.addEventListener('DOMContentLoaded', () => {
             closeModal();
         }
     });
-    /* =========================================
-       Scroll Reveal Animations
-       ========================================= */
-    const revealOnScroll = (entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                observer.unobserve(entry.target);
-            }
-        });
-    };
-
-    const revealObserver = new IntersectionObserver(revealOnScroll, {
-        root: null,
-        threshold: 0.1,
-        rootMargin: "0px"
-    });
-
-    const observeElements = (selector, className, delay = 0) => {
-        document.querySelectorAll(selector).forEach((el, index) => {
-            el.classList.add(className);
-            if (delay === 'stagger') {
-                el.style.transitionDelay = `${(index % 3) * 0.15}s`;
-            } else if (delay > 0) {
-                el.style.transitionDelay = `${delay}s`;
-            }
+    // Final cleanup of any elements that might have missed the observer
+    document.querySelectorAll('[class*="reveal-"]').forEach(el => {
+        if (typeof revealObserver !== 'undefined') {
             revealObserver.observe(el);
-        });
-    };
-
-    // Apply animations
-    observeElements('.section-header', 'reveal-up');
-    observeElements('.portfolio-card', 'reveal-up'); // Let the slider handle visibility, but add fade
-    observeElements('.recipe-card', 'reveal-up', 'stagger');
-    observeElements('.menu-block', 'reveal-up', 'stagger');
-
-    // About
-    const aboutImg = document.querySelector('.about-image img');
-    if (aboutImg) {
-        aboutImg.parentElement.classList.add('reveal-left');
-        revealObserver.observe(aboutImg.parentElement);
-    }
-    const aboutContent = document.querySelector('.about-content');
-    if (aboutContent) {
-        aboutContent.classList.add('reveal-right');
-        revealObserver.observe(aboutContent);
-    }
-
-    // Contacts
-    observeElements('.contact-item', 'reveal-left', 'stagger');
-    const contactMap = document.querySelector('.contact-map');
-    if (contactMap) {
-        contactMap.classList.add('reveal-zoom');
-        contactMap.style.transitionDelay = '0.3s';
-        revealObserver.observe(contactMap);
-    }
-
-    // Footer
-    const footer = document.querySelector('.site-footer');
-    if (footer) {
-        footer.classList.add('reveal-up');
-        revealObserver.observe(footer);
-    }
+        }
+    });
 });
