@@ -2902,7 +2902,7 @@ footer {
     will-change: transform;
     transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.4s ease, visibility 0.4s;
     border-left: none;
-    padding: 4rem 2rem 5rem 2rem;
+    padding: 4rem 2rem 120px 2rem;
     overflow-y: auto;
   }
 
@@ -2924,10 +2924,10 @@ footer {
   .nav-links::after {
     content: '';
     position: absolute;
-    bottom: 40px;
-    right: 25px;
-    width: 80px;
-    height: 80px;
+    bottom: 15px;
+    right: 15px;
+    width: 75px;
+    height: 75px;
     background-image: url('/images/logo_gold.png');
     background-size: contain;
     background-repeat: no-repeat;
@@ -2936,7 +2936,6 @@ footer {
     pointer-events: none;
     z-index: -1;
     mix-blend-mode: multiply;
-    /* Removes white background from image */
   }
 
   /* Mobile Menu Links - Enhanced */
