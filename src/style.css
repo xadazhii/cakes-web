@@ -433,10 +433,10 @@ nav {
 
   .mobile-menu-toggle {
     display: flex;
-    position: fixed;
-    /* Fixed so it's always above the nav-links overlay */
-    top: 1rem;
-    right: 1.5rem;
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
     z-index: 6000;
   }
 
@@ -3047,7 +3047,7 @@ footer {
 
   .mobile-menu-toggle {
     display: flex;
-    z-index: 4000;
+    z-index: 6000;
   }
 
   .site-header.scrolled {
