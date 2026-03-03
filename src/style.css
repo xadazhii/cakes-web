@@ -2868,9 +2868,9 @@ footer {
     height: auto;
     padding: 0.8rem 1rem;
     background-color: var(--color-bg);
-    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+    border-bottom: 2px solid transparent;
+    border-image: var(--color-gold-gradient) 1;
     z-index: 3100;
-    /* Ensure it stays above other mobile components */
   }
 
   /* HARD FIX: Force Mobile Menu Styles for <768px */
@@ -3063,13 +3063,96 @@ footer {
   }
 
   /* Disable reveal animations on mobile to prevent "stuck" feeling */
+  /* Optimized Reveal Animations for Mobile - Smooth & Subtle */
   .reveal-up,
   .reveal-left,
   .reveal-right,
   .reveal-zoom {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .reveal-up {
+    transform: translateY(30px);
+  }
+
+  .reveal-left {
+    transform: translateX(-20px);
+  }
+
+  .reveal-right {
+    transform: translateX(20px);
+  }
+
+  .reveal-zoom {
+    transform: scale(0.96);
+  }
+
+  .reveal-up.active,
+  .reveal-left.active,
+  .reveal-right.active,
+  .reveal-zoom.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, 0) scale(1);
+  }
+
+  /* Stagger delays for better mobile flow */
+  .grid-container div:nth-child(1) {
+    transition-delay: 0.1s;
+  }
+
+  .grid-container div:nth-child(2) {
+    transition-delay: 0.2s;
+  }
+
+  .grid-container div:nth-child(3) {
+    transition-delay: 0.3s;
+  }
+
+  .grid-container div:nth-child(4) {
+    transition-delay: 0.4s;
+  }
+
+  .grid-container div:nth-child(5) {
+    transition-delay: 0.5s;
+  }
+
+  .grid-container div:nth-child(6) {
+    transition-delay: 0.6s;
+  }
+
+  .cakes-grid .cake-card:nth-child(1) {
+    transition-delay: 0.1s;
+  }
+
+  .cakes-grid .cake-card:nth-child(2) {
+    transition-delay: 0.2s;
+  }
+
+  .cakes-grid .cake-card:nth-child(3) {
+    transition-delay: 0.3s;
+  }
+
+  .cakes-grid .cake-card:nth-child(4) {
+    transition-delay: 0.4s;
+  }
+
+  .portfolio-grid .portfolio-item:nth-child(1) {
+    transition-delay: 0.1s;
+  }
+
+  .portfolio-grid .portfolio-item:nth-child(2) {
+    transition-delay: 0.2s;
+  }
+
+  .portfolio-grid .portfolio-item:nth-child(3) {
+    transition-delay: 0.3s;
+  }
+
+  .portfolio-grid .portfolio-item:nth-child(4) {
+    transition-delay: 0.4s;
   }
 
   /* Hero Section */
@@ -3098,6 +3181,19 @@ footer {
     line-height: 1.15;
     margin-bottom: 0.5rem;
     text-shadow: 0 2px 10px rgba(197, 160, 89, 0.1);
+    animation: fadeInText 1s ease-out forwards;
+  }
+
+  @keyframes fadeInText {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .hero-content p {
@@ -3111,6 +3207,7 @@ footer {
     padding: 0 0 1rem 0;
     margin-bottom: 2rem;
     display: inline-block;
+    animation: fadeInText 1.2s ease-out forwards;
   }
 
   .cta-button {
@@ -3118,6 +3215,13 @@ footer {
     font-size: 1rem;
     letter-spacing: 2px;
     box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+    animation: fadeInText 1.4s ease-out forwards;
+    transition: all 0.3s ease;
+  }
+
+  .cta-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
   }
 
   .hero-image {
@@ -3125,14 +3229,30 @@ footer {
     margin-bottom: 2rem;
     display: flex;
     justify-content: center;
-    animation: floatHero 6s ease-in-out infinite;
+    animation:
+      heroImageReveal 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards,
+      floatHero 6s ease-in-out infinite 1.2s;
+    /* Start floating after reveal */
+  }
+
+  @keyframes heroImageReveal {
+    0% {
+      opacity: 0;
+      transform: scale(0.9) translateY(20px);
+      filter: blur(10px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      filter: blur(0);
+    }
   }
 
   .hero-image img {
     box-shadow: 0 20px 40px rgba(197, 160, 89, 0.25);
     max-width: 85%;
     border-radius: 20px;
-    /* Softer rounded rect instead of cropped arch */
     margin: 0 auto;
     filter: brightness(1.02) contrast(1.05);
   }
