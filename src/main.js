@@ -629,12 +629,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (sliderContainer && prevBtn && nextBtn) {
         const getReviewScrollAmount = () => {
-            const firstCard = sliderContainer.querySelector('.review-card');
-            if (firstCard) {
-                const style = window.getComputedStyle(firstCard);
-                const marginLeft = parseFloat(style.marginLeft) || 0;
-                const marginRight = parseFloat(style.marginRight) || 0;
-                return firstCard.offsetWidth + marginLeft + marginRight;
+            const cards = sliderContainer.querySelectorAll('.review-card');
+            if (cards.length > 1) {
+                // Exact distance from start of first card to start of second card
+                return cards[1].getBoundingClientRect().left - cards[0].getBoundingClientRect().left;
+            } else if (cards.length === 1) {
+                return cards[0].offsetWidth;
             }
             return 400;
         };
@@ -683,13 +683,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (portfolioSlider && prevPortfolioBtn && nextPortfolioBtn) {
         const getScrollAmount = () => {
-            // Use the first card's full width (including margin) for snapping
-            const firstCard = portfolioSlider.querySelector('.portfolio-card');
-            if (firstCard) {
-                const style = window.getComputedStyle(firstCard);
-                const marginLeft = parseFloat(style.marginLeft) || 0;
-                const marginRight = parseFloat(style.marginRight) || 0;
-                return firstCard.offsetWidth + marginLeft + marginRight;
+            const cards = portfolioSlider.querySelectorAll('.portfolio-card');
+            if (cards.length > 1) {
+                // Exact distance from start of first card to start of second card
+                return cards[1].getBoundingClientRect().left - cards[0].getBoundingClientRect().left;
+            } else if (cards.length === 1) {
+                return cards[0].offsetWidth;
             }
             return 340;
         };
