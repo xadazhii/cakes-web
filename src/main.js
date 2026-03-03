@@ -221,12 +221,12 @@ const cakes = [
         id: 1,
         uk: {
             title: "Фісташка-Малина",
-            description: "Вишукане поєднання горіхових нот та ягідної свіжості.",
+            description: "Благородний смак відбірної фісташки, збалансований освіжаючою малиновою кислинкою.",
             fillings: ["Ванільний масляний бісквіт", "Конфі з малини", "Фісташковий ганаш", "Крем чіз з маскарпоне"]
         },
         cs: {
             title: "Pistácie-Malina",
-            description: "Vynikající kombinace ořechových tónů a svěžesti bobulí.",
+            description: "Ušlechtilá chuť výběrových pistácií vyvážená osvěžující malinovou kyselinkou.",
             fillings: ["Vanilkový máslový piškot", "Malinové konfit", "Pistáciová ganache", "Krém s mascarpone"]
         },
         image: "/images/c1.png",
@@ -236,12 +236,12 @@ const cakes = [
         id: 2,
         uk: {
             title: "Ваніль-Ягоди",
-            description: "Класика, яка ніколи не набридає.",
+            description: "Традиційний ванільний смак з яскравою кислинкою асорті лісових ягід.",
             fillings: ["Ванільний бісквіт на молоці", "Шоколадний ганаш", "Мікс ягідного конфі", "Крем маскарпоне з ваніллю"]
         },
         cs: {
             title: "Vanilka-Lesní plody",
-            description: "Klasika, která nikdy neomrzí.",
+            description: "Tradiční vanilková chuť s jasnou kyselostí směsi lesních plodů.",
             fillings: ["Vanilkový piškot s mlékem", "Čokoládová ganache", "Mix bobulového konfit", "Krém mascarpone s vanilkou"]
         },
         image: "/images/c2.png",
@@ -251,12 +251,12 @@ const cakes = [
         id: 3,
         uk: {
             title: "Снікерс",
-            description: "Улюблений смак у форматі торта.",
+            description: "Багатий карамельний смак з щедрою порцією смаженого арахісу та густим шоколадом.",
             fillings: ["Шоколадний бісквіт", "Арахіс з карамеллю", "Крем чіз", "Шоколадний ганаш", "Хрусткі рисові кульки"]
         },
         cs: {
             title: "Snickers",
-            description: "Oblíbená chuť ve formě dortu.",
+            description: "Bohatá karamelová chuť se štědrou porcí pražených arašídů a hustou čokoládou.",
             fillings: ["Čokoládový piškot", "Arašídy s karamelem", "Sýrový krém", "Čokoládová ganache", "Křupavé rýžové kuličky"]
         },
         image: "/images/c3.png",
@@ -266,12 +266,12 @@ const cakes = [
         id: 4,
         uk: {
             title: "Шоколадна Вишня",
-            description: "Гармонія шоколадної гірчинки та вишневої кислинки.",
+            description: "Гармонія оксамитового шоколаду та соковитої вишні з благородною кислинкою.",
             fillings: ["Шоколадний бісквіт", "Шоколадний ганаш", "Крем з маскарпоне", "Вишневий конфітюр", "Рисові кульки"]
         },
         cs: {
             title: "Čokoládová Višeň",
-            description: "Harmonie čokoládové hořkosti a višňové kyselosti.",
+            description: "Harmonie sametové čokolády a šťavnaté višně s ušlechtilou kyselinkou.",
             fillings: ["Čokoládový piškot", "Čokoládová ganache", "Krém s mascarpone", "Višňový džem", "Rýžové kuličky"]
         },
         image: "/images/c4.png",
@@ -281,12 +281,12 @@ const cakes = [
         id: 5,
         uk: {
             title: "Фереро Роше",
-            description: "Розкішний горіхово-шоколадний десерт.",
+            description: "Вишуканий горіхово-шоколадний смак з хрусткою текстурою та повітряним кремом.",
             fillings: ["Шоколадний бісквіт з шоколадом", "Запечений фундучний чізкейк", "Шоколадний крем з нутелою", "Ганаш на молочному шоколаді", "Хрустяшка з фундуком та шоколадом"]
         },
         cs: {
             title: "Ferrero Rocher",
-            description: "Luxusní oříškovo-čokoládový dezert.",
+            description: "Gurmánská ořechovo-čokoládová chuť s křupavou texturou a nadýchaným krémem.",
             fillings: ["Čokoládový piškot", "Pečený lískooříškový cheesecake", "Čokoládový krém s nutellou", "Ganache z mléčné čokolády", "Křupavá vrstva s lískovými oříšky"]
         },
         image: "/images/c5.png",
@@ -296,12 +296,12 @@ const cakes = [
         id: 6,
         uk: {
             title: "Орео",
-            description: "Для фанатів легендарного печива.",
+            description: "Насичений шоколадний смак з хрусткою крихтою фірмового печива та ніжним крем-чізом.",
             fillings: ["Шоколадний бісквіт", "Запечений чізкейк з орео", "Крем з орео", "Шоколадний ганаш"]
         },
         cs: {
             title: "Oreo",
-            description: "Pro fanoušky legendární sušenky.",
+            description: "Intenzivní čokoládová chuť s křupavými kousky značkové sušenky a jemným krémem.",
             fillings: ["Čokoládový piškot", "Pečený cheesecake s oreo", "Krém s oreo", "Čokoládová ganache"]
         },
         image: "/images/c6.png",
@@ -311,12 +311,12 @@ const cakes = [
         id: 7,
         uk: {
             title: "Банан-Шоколад",
-            description: "Солодкий та насичений смак.",
+            description: "Ніжне поєднання солодкого натурального банана з глибоким смаком шоколаду.",
             fillings: ["Шоколадний бісквіт (або ванільний)", "Шоколадний крем з нутелою", "Ванільний крем", "Свіжий банан", "Карамель", "Хрусткі кульки"]
         },
         cs: {
             title: "Banán-Čokoláda",
-            description: "Sladká a sytá chuť.",
+            description: "Jemná kombinace sladkého přírodního banánu s hlubokou chutí čokolády.",
             fillings: ["Čokoládový piškot (nebo vanilkový)", "Čokoládový krém s nutellou", "Vanilkový krém", "Čerstvý banán", "Karamel", "Křupavé kuličky"]
         },
         image: "/images/c7.png",
@@ -326,12 +326,12 @@ const cakes = [
         id: 8,
         uk: {
             title: "Кокос-Вишня",
-            description: "Екзотична ніжність.",
+            description: "Легкий кокосовий післясмак з виразною вишневою ноткою.",
             fillings: ["Кокосові бісквіти", "Запечений кокосовий чізкейк", "Вишневий конфітюр", "Ванільний крем з маскарпоне"]
         },
         cs: {
             title: "Kokos-Višeň",
-            description: "Exotická jemnost.",
+            description: "Lehká kokosová dochuť s výrazným višňovým tónem.",
             fillings: ["Kokosové piškoty", "Pečený kokosový cheesecake", "Višňový džem", "Vanilkový krém s mascarpone"]
         },
         image: "/images/c8.png",
@@ -341,12 +341,12 @@ const cakes = [
         id: 9,
         uk: {
             title: "Малиновий Чізкейк",
-            description: "Подвійна насолода малиною.",
+            description: "Вершковий смак класичного чізкейку доповнений вибуховим ягідним малиновим конфі.",
             fillings: ["Ванільний бісквіт", "Чізкейк запечений", "Малиновий ганаш", "Малиновий конфітюр", "Ванільний крем-чіз"]
         },
         cs: {
             title: "Malinový Cheesecake",
-            description: "Dvojité malinové potěšení.",
+            description: "Smetanová chuť klasického cheesecaku doplněná explozním malinovým konfitem.",
             fillings: ["Vanilkový piškot", "Pečený cheesecake", "Malinová ganache", "Malinový džem", "Vanilkový krém sýr"]
         },
         image: "/images/c9.png",
@@ -356,12 +356,12 @@ const cakes = [
         id: 10,
         uk: {
             title: "Тропіки",
-            description: "Сонячний смак манго та маракуї.",
+            description: "Яскравий тропічний мікс стиглого манго та маракуї з легким екзотичним шлейфом.",
             fillings: ["Кокосовий бісквіт", "Ванільний крем-чіз з кокосом", "Конфі манго-маракуя", "Ганаш манго-маракуя з маскарпоне"]
         },
         cs: {
             title: "Tropiky",
-            description: "Slunečná chuť manga a marakuji.",
+            description: "Zářivý tropický mix zralého manga a maracuji s lehkým exotickým nádechem.",
             fillings: ["Kokosový piškot", "Vanilkový krém sýr s kokosem", "Konfit mango-marakuja", "Ganache mango-marakuja s mascarpone"]
         },
         image: "/images/c10.png",
@@ -371,12 +371,12 @@ const cakes = [
         id: 11,
         uk: {
             title: "Мілка",
-            description: "Найніжніший шоколадний смак.",
+            description: "Ніжний вершковий смак, що тане в роті, немов плитка улюбленого шоколаду.",
             fillings: ["Шоколадний бісквіт", "Мус на білому шоколаді", "Шоколадний ганаш", "Хрусткі кульки"]
         },
         cs: {
             title: "Milka",
-            description: "Nejjemnější čokoládová chuť.",
+            description: "Jemná smetanová chuť, která se rozplývá na jazyku jako tabulka oblíbené čokolády.",
             fillings: ["Čokoládový piškot", "Pěna z bílé čokolády", "Čokoládová ganache", "Křupavé kuličky"]
         },
         image: "/images/c11.png",
@@ -386,12 +386,12 @@ const cakes = [
         id: 12,
         uk: {
             title: "Нутелла",
-            description: "Насичений шоколадний смак з фундуком та ніжним мусом.",
+            description: "Інтенсивна шоколадна насолода з відбірним фундуком та повітряним горіховим мусом.",
             fillings: ["Шоколадний бісквіт", "Хрусткий прошарок", "Шоколадний ганаш", "Фундучний ганаш", "Мус нутела", "Крем з нутеллою"]
         },
         cs: {
             title: "Nutella",
-            description: "Intenzivní čokoládová chuť s lískovými oříšky a jemnou pěnou.",
+            description: "Intenzivní čokoládové potěšení s výběrovými lískovými oříšky a nadýchanou ořechovou pěnou.",
             fillings: ["Čokoládový korpus", "Křupavá vrstva", "Čokoládová ganache", "Lískooříšková ganache", "Nutella pěna", "Nutella krém"]
         },
         image: "/images/c12.png",
@@ -416,12 +416,12 @@ const cakes = [
         id: 14,
         uk: {
             title: "Фісташка Манго",
-            description: "Тропічне поєднання манго та маракуї з насиченою фісташкою.",
+            description: "Екзотичний дует насиченої фісташки та соковитого манго з легким ароматом маракуї.",
             fillings: ["Фісташковий бісквіт", "Фісташковий крем", "Компоте манго-маракуя", "Кусочки манго", "Запечений манговий чізкейк"]
         },
         cs: {
             title: "Pistácie Mango",
-            description: "Tropická kombinace manga a maracuji s výraznou pistácií.",
+            description: "Exotické duo intenzivních pistácií a šťavnatého manga s jemnou vůní maracuji.",
             fillings: ["Pistáciový korpus", "Pistáciový krém", "Mango-maracuja konfit", "Kousky manga", "Pečený mangový cheesecake"]
         },
         image: "/images/c14.png",

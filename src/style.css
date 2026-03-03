@@ -1033,7 +1033,8 @@ nav {
 .modal-body {
   display: flex;
   flex-direction: row;
-  min-height: 550px;
+  height: 600px;
+  /* Fixed height for consistency as requested */
 }
 
 .modal-images {
@@ -1070,6 +1071,8 @@ nav {
   flex-direction: column;
   justify-content: center;
   position: relative;
+  overflow-y: auto;
+  /* Allow scrolling for longer descriptions/ingredients */
 }
 
 .modal-details h2 {
@@ -1088,6 +1091,8 @@ nav {
   line-height: 1.6;
   margin-bottom: 2rem;
   font-style: italic;
+  flex-shrink: 0;
+  /* Don't squash description */
 }
 
 .modal-ingredients {
