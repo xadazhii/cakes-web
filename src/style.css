@@ -3626,9 +3626,10 @@ footer {
   .modal-content {
     margin: auto !important;
     width: 90vw !important;
-    height: 80vh !important;
-    /* Lock height to a safe portion of screen */
-    max-height: 80vh !important;
+    height: auto !important;
+    /* Allow it to shrink to content */
+    max-height: 85vh !important;
+    /* Safety limit */
     border-radius: 20px !important;
     display: flex !important;
     flex-direction: column !important;
@@ -3638,7 +3639,8 @@ footer {
   }
 
   .modal-images {
-    height: 18vh !important;
+    height: 25vh !important;
+    /* Larger image as requested */
     /* Adaptive height based on screen */
     flex: 0 0 auto !important;
     width: 100% !important;
@@ -3651,13 +3653,12 @@ footer {
   }
 
   .modal-details {
-    padding: 0.8rem !important;
+    padding: 1rem !important;
     text-align: left !important;
-    flex: 1 !important;
+    flex: 0 0 auto !important;
+    /* Don't force growth */
     display: flex !important;
     flex-direction: column !important;
-    overflow: hidden !important;
-    /* No internal scroll for details container */
   }
 
   .modal-details h2 {
@@ -3669,29 +3670,20 @@ footer {
   }
 
   .modal-desc {
-    font-size: 0.85rem !important;
-    line-height: 1.25 !important;
-    margin-bottom: 0.4rem !important;
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.8rem !important;
     color: #444 !important;
     display: block !important;
-    /* Limit to 3 lines if very long to protect button visibility */
-    display: -webkit-box !important;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
   }
 
   .modal-ingredients {
-    margin: 0.3rem 0 !important;
-    padding: 0.6rem !important;
+    margin: 0.5rem 0 !important;
+    padding: 0.8rem !important;
     background: rgba(212, 175, 55, 0.03) !important;
     border-radius: 10px !important;
-    flex: 1 !important;
-    overflow-y: auto !important;
-    /* Scroll here ONLY if list is huge */
-    min-height: 0;
-    /* Allow flex shrink */
+    flex: 0 0 auto !important;
+    /* Fit content */
   }
 
   .modal-ingredients h4 {
