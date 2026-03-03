@@ -2942,7 +2942,6 @@ footer {
   /* Responsive Bottom Grouping */
   .mobile-menu-bottom-area {
     margin-top: 0.5rem;
-    /* Reduced from auto to avoid pushing off-screen on small phones */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2950,17 +2949,28 @@ footer {
     max-width: 280px;
     padding-bottom: 0.5rem;
     position: relative;
+    border-bottom: none !important;
+    /* Remove separator line */
   }
 
-  .mobile-menu-footer {
-    position: absolute;
-    bottom: 50px;
-    /* Float it up to be level with Contacts and Reviews */
-    right: 0;
-    /* Align it to the right above CZ */
-    width: auto;
+  /* Safely placed responsive logo above lang-switcher */
+  .mobile-cake-decor {
+    display: flex;
+    justify-content: flex-end;
+    /* Right align to be above CZ */
+    align-items: center;
+    width: 100%;
+    max-width: 240px;
+    margin-top: -0.5rem;
+    /* Pull it slightly up closer to contacts */
+    margin-bottom: -1rem;
+    /* Overlap slightly with lang switcher for tightness */
+    padding-right: 1.5rem;
+    /* Precise alignment over CZ button */
+    border-bottom: none !important;
     opacity: 1;
     z-index: 5;
+    position: relative;
   }
 
   /* Compact responsive logo */
