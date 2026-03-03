@@ -3064,22 +3064,22 @@ footer {
 
   /* Disable reveal animations on mobile to prevent "stuck" feeling */
   /* Optimized Reveal Animations for Mobile - Smooth & Subtle */
+  /* Optimized Reveal Animations for Mobile - Clean & Sharp */
   .reveal-up,
   .reveal-left,
   .reveal-right,
   .reveal-zoom,
-  .reveal-blur {
+  .reveal-soft {
     opacity: 0;
     visibility: hidden;
-    filter: blur(8px);
     transition:
-      opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-      transform 1s cubic-bezier(0.2, 0.8, 0.2, 1),
-      filter 1.2s ease-out;
+      opacity 1s cubic-bezier(0.2, 0, 0.2, 1),
+      transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: opacity, transform;
   }
 
   .reveal-up {
-    transform: translateY(40px);
+    transform: translateY(30px) scale(0.98);
   }
 
   .reveal-left {
@@ -3091,22 +3091,20 @@ footer {
   }
 
   .reveal-zoom {
-    transform: scale(0.92);
+    transform: scale(0.94);
   }
 
-  .reveal-blur {
-    transform: scale(1.05);
-    filter: blur(20px);
+  .reveal-soft {
+    transform: translateY(10px);
   }
 
   .reveal-up.active,
   .reveal-left.active,
   .reveal-right.active,
   .reveal-zoom.active,
-  .reveal-blur.active {
+  .reveal-soft.active {
     opacity: 1;
     visibility: visible;
-    filter: blur(0);
     transform: translate(0, 0) scale(1);
   }
 
@@ -3293,13 +3291,11 @@ footer {
     0% {
       opacity: 0;
       transform: scale(0.9) translateY(20px);
-      filter: blur(10px);
     }
 
     100% {
       opacity: 1;
       transform: scale(1) translateY(0);
-      filter: blur(0);
     }
   }
 
