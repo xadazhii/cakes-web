@@ -639,16 +639,18 @@ document.addEventListener('DOMContentLoaded', () => {
             return 400;
         };
 
-        const updateReviewButtons = () => {
-            const scrollLeft = Math.ceil(sliderContainer.scrollLeft);
-            const maxScroll = sliderContainer.scrollWidth - sliderContainer.clientWidth;
+        const isReviewAtEnd = () => {
+            const cards = sliderContainer.querySelectorAll('.review-card');
+            if (!cards.length) return true;
+            const lastCard = cards[cards.length - 1];
+            return lastCard.getBoundingClientRect().right <= sliderContainer.getBoundingClientRect().right + 30;
+        };
 
-            // Subtle opacity change or logic can be added here if needed, 
-            // but the main goal is to stop overscrolling
-            if (scrollLeft <= 5) prevBtn.style.opacity = '0.3';
+        const updateReviewButtons = () => {
+            if (sliderContainer.scrollLeft <= 5) prevBtn.style.opacity = '0.3';
             else prevBtn.style.opacity = '1';
 
-            if (scrollLeft >= maxScroll - 30) nextBtn.style.opacity = '0.3';
+            if (isReviewAtEnd()) nextBtn.style.opacity = '0.3';
             else nextBtn.style.opacity = '1';
         };
 
@@ -664,9 +666,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         nextBtn.addEventListener('click', () => {
-            const scrollLeft = Math.ceil(sliderContainer.scrollLeft);
-            const maxScroll = sliderContainer.scrollWidth - sliderContainer.clientWidth;
-            if (scrollLeft >= maxScroll - 30) return;
+            if (isReviewAtEnd()) return;
             sliderContainer.scrollBy({
                 left: getReviewScrollAmount(),
                 behavior: 'smooth'
@@ -694,15 +694,18 @@ document.addEventListener('DOMContentLoaded', () => {
             return 340;
         };
 
-        const updatePortfolioButtons = () => {
-            const scrollLeft = Math.ceil(portfolioSlider.scrollLeft);
-            const maxScroll = portfolioSlider.scrollWidth - portfolioSlider.clientWidth;
+        const isPortfolioAtEnd = () => {
+            const cards = portfolioSlider.querySelectorAll('.portfolio-card');
+            if (!cards.length) return true;
+            const lastCard = cards[cards.length - 1];
+            return lastCard.getBoundingClientRect().right <= portfolioSlider.getBoundingClientRect().right + 30;
+        };
 
-            if (scrollLeft <= 5) prevPortfolioBtn.style.opacity = '0.3';
+        const updatePortfolioButtons = () => {
+            if (portfolioSlider.scrollLeft <= 5) prevPortfolioBtn.style.opacity = '0.3';
             else prevPortfolioBtn.style.opacity = '1';
 
-            // Widen boundary to account for Safari padding/subpixel rendering
-            if (scrollLeft >= maxScroll - 30) nextPortfolioBtn.style.opacity = '0.3';
+            if (isPortfolioAtEnd()) nextPortfolioBtn.style.opacity = '0.3';
             else nextPortfolioBtn.style.opacity = '1';
         };
 
@@ -718,10 +721,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         nextPortfolioBtn.addEventListener('click', () => {
-            const scrollLeft = Math.ceil(portfolioSlider.scrollLeft);
-            const maxScroll = portfolioSlider.scrollWidth - portfolioSlider.clientWidth;
-
-            if (scrollLeft >= maxScroll - 30) return;
+            if (isPortfolioAtEnd()) return;
             portfolioSlider.scrollBy({
                 left: getScrollAmount(),
                 behavior: 'smooth'
