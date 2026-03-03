@@ -247,6 +247,13 @@ nav {
   width: auto;
   object-fit: contain;
   margin-left: -10px;
+  background: none;
+  /* Ensure no white bg */
+}
+
+/* Hide mobile menu additions by default (for desktop) */
+.mobile-menu-footer {
+  display: none;
 }
 
 .logo-text {
@@ -2932,7 +2939,7 @@ footer {
 
 
 
-  /* Footer for Mobile Menu */
+  /* Footer for Mobile Menu only */
   .mobile-menu-footer {
     display: flex;
     flex-direction: column;
