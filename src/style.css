@@ -3625,21 +3625,21 @@ footer {
 
   .modal-content {
     margin: auto !important;
-    width: 92vw !important;
-    height: 82vh !important;
-    /* Slightly more space to fit content */
-    max-height: 82vh !important;
+    width: 90vw !important;
+    height: 80vh !important;
+    /* Lock height to a safe portion of screen */
+    max-height: 80vh !important;
     border-radius: 20px !important;
     display: flex !important;
     flex-direction: column !important;
     overflow: hidden !important;
-    /* Total no-scroll as requested */
     background: #fff !important;
+    box-shadow: 0 10vw 30vw rgba(0, 0, 0, 0.3) !important;
   }
 
   .modal-images {
-    height: 140px !important;
-    /* More space for text */
+    height: 18vh !important;
+    /* Adaptive height based on screen */
     flex: 0 0 auto !important;
     width: 100% !important;
   }
@@ -3651,61 +3651,74 @@ footer {
   }
 
   .modal-details {
-    padding: 0.8rem 1rem !important;
-    /* Tighter padding */
+    padding: 0.8rem !important;
     text-align: left !important;
-    overflow-y: auto !important;
-    /* Internal scroll ONLY if absolutely needed for very long ingredients */
     flex: 1 !important;
     display: flex !important;
     flex-direction: column !important;
+    overflow: hidden !important;
+    /* No internal scroll for details container */
   }
 
   .modal-details h2 {
-    font-size: 1.5rem !important;
-    /* Smaller title */
-    margin-bottom: 0.4rem !important;
-    line-height: 1.2 !important;
+    font-size: 1.35rem !important;
+    /* Tighter title */
+    margin-bottom: 0.3rem !important;
+    line-height: 1.1 !important;
     color: var(--color-accent) !important;
   }
 
   .modal-desc {
-    font-size: 0.9rem !important;
-    line-height: 1.3 !important;
-    margin-bottom: 0.6rem !important;
-    color: #555 !important;
+    font-size: 0.85rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 0.4rem !important;
+    color: #444 !important;
     display: block !important;
+    /* Limit to 3 lines if very long to protect button visibility */
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   .modal-ingredients {
-    margin: 0.4rem 0 !important;
-    padding: 0.8rem !important;
-    /* Trimmed padding */
+    margin: 0.3rem 0 !important;
+    padding: 0.6rem !important;
     background: rgba(212, 175, 55, 0.03) !important;
+    border-radius: 10px !important;
+    flex: 1 !important;
+    overflow-y: auto !important;
+    /* Scroll here ONLY if list is huge */
+    min-height: 0;
+    /* Allow flex shrink */
   }
 
   .modal-ingredients h4 {
-    font-size: 0.9rem !important;
-    margin-bottom: 0.4rem !important;
+    font-size: 0.8rem !important;
+    margin-bottom: 0.3rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
 
   .modal-ingredients li {
-    font-size: 0.85rem !important;
-    /* Target smaller text */
-    padding: 0.2rem 0 0.2rem 1.4rem !important;
-    line-height: 1.2 !important;
+    font-size: 0.8rem !important;
+    padding: 0.15rem 0 0.15rem 1.2rem !important;
+    line-height: 1.15 !important;
     position: relative !important;
-    text-align: left !important;
   }
 
   .modal-order-btn {
     width: 100% !important;
-    margin-top: auto !important;
-    /* Push to bottom of details */
+    margin-top: 0.8rem !important;
+    /* Fixed margin above button */
     padding: 0.8rem !important;
     display: block !important;
     text-align: center !important;
-    font-size: 0.9rem !important;
+    font-size: 0.95rem !important;
+    flex: 0 0 auto !important;
+    /* Button never shrinks */
+    border-radius: 12px !important;
   }
 
   .close-modal {
