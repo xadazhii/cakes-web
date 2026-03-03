@@ -100,7 +100,13 @@ const translations = {
         port4_title: "Приватні Святкування",
         sweet1_title: "Французькі Макаруни",
         sweet2_title: "Свіжі Фруктові Пироги",
-        sweet3_title: "Ніжні Чізкейки"
+        sweet3_title: "Ніжні Чізкейки",
+        review1_trans: "",
+        review2_trans: "",
+        review3_trans: "",
+        review4_trans: "",
+        review5_trans: "",
+        review6_trans: ""
     },
     cs: {
         nav_home: "Hlavní",
@@ -198,7 +204,13 @@ const translations = {
         port4_title: "Soukromé oslavy",
         sweet1_title: "Francouzské makronky",
         sweet2_title: "Čerstvé ovocné koláče",
-        sweet3_title: "Jemné cheesecaky"
+        sweet3_title: "Jemné cheesecaky",
+        review1_trans: "Ahoj Angelinko, dort je 🔥 moc dobrý. Ty kuličky s višní všem fakt chutnaly 😍",
+        review2_trans: "Dortík se moc líbil, je moc dobrý a krásný 🥰🥰 moc děkujeme.",
+        review3_trans: "Moc děkujeme ❤️ roláda je mooc dobrá 😊💔 ❤️",
+        review4_trans: "Dobré ráno, váš dortík je prostě úžasný, získal si moje srdce 🥰 moc se mi líbí a je moc dobrý. Upřímně děkuji za takovou krásu 😍",
+        review5_trans: "Super, moc děkuji ❤️ Všem se to líbilo 😍 Moc dobré a velmi krásné 🫶",
+        review6_trans: "Ano, vše jste udělala profesionálně. Doma jsme si to moc dlouho prohlíželi a bylo nám líto takovou krásu krájet 🥰 Jste skutečná mistryně svého řemesla 🥰 šikulka 🤗 Vše dopadlo skvěle, dívala jsem se na to a říkala si, jak je vůbec možné vlastníma rukama vytvořit takové zázraky. Křídla byla nádherná a ta panenka byla kouzelná, všechno jste moc krásně naaranžovala. Přejeme Vám milé a poctivé zákazníky 🥰 Moc Vám děkujeme ❤️"
     }
 };
 
@@ -460,7 +472,7 @@ document.addEventListener('DOMContentLoaded', () => {
             currentLang = lang;
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (translations[lang][key]) {
+                if (translations[lang].hasOwnProperty(key)) {
                     const content = translations[lang][key];
                     // Automatically wrap list dots with gold styling
                     el.innerHTML = content.includes(' • ')

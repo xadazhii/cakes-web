@@ -2234,6 +2234,42 @@ footer {
   object-fit: contain;
 }
 
+.review-translation {
+  position: absolute;
+  bottom: 0.8rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  width: 90%;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0.8rem 1rem;
+  border-radius: 14px;
+  font-size: 0.85rem;
+  color: #1a1a1a;
+  line-height: 1.4;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: none;
+  z-index: 10;
+  text-align: center;
+  font-weight: 500;
+}
+
+.review-translation:not(:empty) {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.review-translation::before {
+  content: '🇨🇿';
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
 .review-card:hover .review-screenshot {
   transform: scale(1.03);
 }
@@ -2804,8 +2840,8 @@ footer {
 
   /* Enhanced Mobile Lang Switcher */
   .lang-switcher {
-    margin-top: 2rem;
-    padding: 0.8rem 2rem;
+    margin-top: 1rem;
+    padding: 0.6rem 1.8rem;
     background: #fff;
     border-radius: 50px;
     border: 1px solid rgba(212, 175, 55, 0.2);
@@ -2854,7 +2890,7 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 1.2rem;
     z-index: 3500;
     transform: translateX(100%);
     opacity: 0;
@@ -2863,7 +2899,8 @@ footer {
     will-change: transform;
     transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.4s ease, visibility 0.4s;
     border-left: none;
-    padding: 2rem;
+    padding: 4rem 2rem 2rem 2rem;
+    overflow-y: auto;
   }
 
   /* Add decorative top accent line */
@@ -2877,28 +2914,28 @@ footer {
     height: 4px;
     background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
     border-radius: 2px;
-    margin-top: 60px;
+    margin-top: 30px;
   }
 
   /* Add decorative logo in corner */
   .nav-links::after {
     content: '';
     position: absolute;
-    bottom: 100px;
+    bottom: 30px;
     right: 20px;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     background-image: url('/images/logo_gold.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    opacity: 0.2;
+    opacity: 0.15;
   }
 
   /* Mobile Menu Links - Enhanced */
   .nav-links a {
     font-family: var(--font-heading);
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: #333;
     font-weight: 500;
     position: relative;
