@@ -2911,7 +2911,8 @@ footer {
       linear-gradient(180deg, #fffcf5 0%, #fff8eb 100%);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    /* CRITICAL FIX: prevents items from disappearing off the top on short screens */
     align-items: center;
     gap: 1.2rem;
     z-index: 3500;
@@ -2922,7 +2923,8 @@ footer {
     will-change: transform;
     transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.4s ease, visibility 0.4s;
     border-left: none;
-    padding: 4rem 2rem 140px 2rem;
+    padding: 120px 2rem 60px 2rem;
+    /* Give enough top clearance for "X" button and home tab */
     overflow-y: auto;
     isolation: isolate;
     /* Create new stacking context for blend mode on Safari */
@@ -2955,17 +2957,15 @@ footer {
   }
 
   .mobile-menu-icon {
-    width: 40px;
-    height: 40px;
+    width: 120px;
+    height: auto;
     object-fit: contain;
+    margin-bottom: 20px;
   }
 
+  /* The image already contains the text in the transparent version, so we hide the raw text */
   .mobile-menu-text {
-    font-family: var(--font-heading);
-    font-size: 1.2rem;
-    color: var(--color-accent);
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    display: none;
   }
 
   /* Mobile Menu Links - Enhanced */
