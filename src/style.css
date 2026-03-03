@@ -2899,16 +2899,8 @@ footer {
     inset: 0;
     width: 100%;
     height: 100dvh;
-    /* Bold Premium Background with Decorative Elements */
-    background:
-      /* Large decorative gold circle bottom-right */
-      radial-gradient(circle at 120% 120%, rgba(212, 175, 55, 0.25) 0%, transparent 50%),
-      /* Medium gold orb top-left */
-      radial-gradient(circle at -20% -10%, rgba(253, 185, 49, 0.2) 0%, transparent 35%),
-      /* Subtle center glow */
-      radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 1) 0%, rgba(255, 250, 240, 0.8) 100%),
-      /* Base warm cream */
-      linear-gradient(180deg, #fffcf5 0%, #fff8eb 100%);
+    /* Solid plain background as requested */
+    background: var(--color-bg);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -2961,14 +2953,12 @@ footer {
   }
 
   .mobile-menu-footer {
-    display: flex;
-    justify-content: flex-end;
-    /* Align logo to the right */
-    width: 100%;
-    padding-right: 2.5rem;
-    /* Positioning above CZ button */
-    margin-bottom: -15px;
-    /* Visual overlap for harmony */
+    position: absolute;
+    bottom: 50px;
+    /* Float it up to be level with Contacts and Reviews */
+    right: 0;
+    /* Align it to the right above CZ */
+    width: auto;
     opacity: 1;
     z-index: 5;
   }
