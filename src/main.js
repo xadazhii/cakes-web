@@ -639,7 +639,24 @@ document.addEventListener('DOMContentLoaded', () => {
             return 400;
         };
 
+        const updateReviewButtons = () => {
+            const scrollLeft = sliderContainer.scrollLeft;
+            const maxScroll = sliderContainer.scrollWidth - sliderContainer.clientWidth;
+
+            // Subtle opacity change or logic can be added here if needed, 
+            // but the main goal is to stop overscrolling
+            if (scrollLeft <= 5) prevBtn.style.opacity = '0.3';
+            else prevBtn.style.opacity = '1';
+
+            if (scrollLeft >= maxScroll - 5) nextBtn.style.opacity = '0.3';
+            else nextBtn.style.opacity = '1';
+        };
+
+        sliderContainer.addEventListener('scroll', updateReviewButtons);
+        window.addEventListener('resize', updateReviewButtons);
+
         prevBtn.addEventListener('click', () => {
+            if (sliderContainer.scrollLeft <= 0) return;
             sliderContainer.scrollBy({
                 left: -getReviewScrollAmount(),
                 behavior: 'smooth'
@@ -647,11 +664,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         nextBtn.addEventListener('click', () => {
+            const maxScroll = sliderContainer.scrollWidth - sliderContainer.clientWidth;
+            if (sliderContainer.scrollLeft >= maxScroll - 5) return;
             sliderContainer.scrollBy({
                 left: getReviewScrollAmount(),
                 behavior: 'smooth'
             });
         });
+
+        // Initial check
+        setTimeout(updateReviewButtons, 100);
     }
 
     // Portfolio Slider Logic
@@ -672,7 +694,22 @@ document.addEventListener('DOMContentLoaded', () => {
             return 340;
         };
 
+        const updatePortfolioButtons = () => {
+            const scrollLeft = portfolioSlider.scrollLeft;
+            const maxScroll = portfolioSlider.scrollWidth - portfolioSlider.clientWidth;
+
+            if (scrollLeft <= 5) prevPortfolioBtn.style.opacity = '0.3';
+            else prevPortfolioBtn.style.opacity = '1';
+
+            if (scrollLeft >= maxScroll - 5) nextPortfolioBtn.style.opacity = '0.3';
+            else nextPortfolioBtn.style.opacity = '1';
+        };
+
+        portfolioSlider.addEventListener('scroll', updatePortfolioButtons);
+        window.addEventListener('resize', updatePortfolioButtons);
+
         prevPortfolioBtn.addEventListener('click', () => {
+            if (portfolioSlider.scrollLeft <= 0) return;
             portfolioSlider.scrollBy({
                 left: -getScrollAmount(),
                 behavior: 'smooth'
@@ -680,11 +717,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         nextPortfolioBtn.addEventListener('click', () => {
+            const maxScroll = portfolioSlider.scrollWidth - portfolioSlider.clientWidth;
+            if (portfolioSlider.scrollLeft >= maxScroll - 5) return;
             portfolioSlider.scrollBy({
                 left: getScrollAmount(),
                 behavior: 'smooth'
             });
         });
+
+        // Initial check
+        setTimeout(updatePortfolioButtons, 100);
     }
 
     // Modal Logic
