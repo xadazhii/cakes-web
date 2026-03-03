@@ -2924,18 +2924,17 @@ footer {
   .nav-links::after {
     content: '';
     position: absolute;
-    bottom: 20px;
-    right: 20px;
-    width: 110px;
-    height: 110px;
+    bottom: 25px;
+    right: 25px;
+    width: 90px;
+    height: 90px;
     background-image: url('/images/logo_gold.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    opacity: 0.1;
+    opacity: 0.9;
     pointer-events: none;
-    filter: grayscale(1) brightness(1.2);
-    /* Make it more of a subtle watermark */
+    z-index: -1;
   }
 
   /* Mobile Menu Links - Enhanced */
