@@ -1,3 +1,4 @@
+<img width="1654" height="915" alt="Screenshot 2026-05-08 at 17 31 56" src="https://github.com/user-attachments/assets/02c58477-dbb3-484b-8176-75c62738ca77" />
 # Cakes by Lina
 
 A landing page for **Cakes by Lina** — handcrafted desserts and custom cakes from Bruntál / Olomouc, Czech Republic.
@@ -8,9 +9,9 @@ A landing page for **Cakes by Lina** — handcrafted desserts and custom cakes f
 
 ## Preview
 
-![Hero section](docs/screenshots/hero.png)
+<img width="1627" height="850" alt="Screenshot 2026-05-08 at 17 32 24" src="https://github.com/user-attachments/assets/fffefb15-986f-4003-9a43-e51dec9d2001" />
 
-![Recipes section](docs/screenshots/recipes.png)
+<img width="1639" height="911" alt="Screenshot 2026-05-08 at 17 32 14" src="https://github.com/user-attachments/assets/528906c7-cb52-45d3-ac41-666d3b60cb55" />
 
 ---
 
