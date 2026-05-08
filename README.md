@@ -8,13 +8,9 @@ A landing page for **Cakes by Lina** — handcrafted desserts and custom cakes f
 
 ## Preview
 
-### Hero
-
 <img width="1627" height="850" alt="Hero section" src="https://github.com/user-attachments/assets/fffefb15-986f-4003-9a43-e51dec9d2001" />
 
 <br><br>
-
-### Recipes
 
 <img width="1639" height="911" alt="Recipes section" src="https://github.com/user-attachments/assets/528906c7-cb52-45d3-ac41-666d3b60cb55" />
 
