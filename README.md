@@ -77,12 +77,3 @@ npm run preview
 └── package.json
 ```
 
-## Contacts
-
-- 📍 Bruntál / Olomouc, Czech Republic
-- 📞 [+420 776 000 575](tel:+420776000575)
-- 📷 Instagram: [@cakesby.linaa](https://instagram.com/cakesby.linaa)
-
----
-
-© 2026 Cakes by Lina
